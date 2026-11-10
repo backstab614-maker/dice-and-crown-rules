@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DICE &amp; CROWN はじめてのルール</title>
+<meta name="description" content="2 人対戦のダイス・ボードゲーム「DICE &amp; CROWN」を初めて遊ぶ人向けの、図とゲーム画面つきの簡単なルール説明書。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DICE &amp; CROWN">
+<meta property="og:title" content="DICE &amp; CROWN はじめてのルール">
+<meta property="og:description" content="2 人対戦のダイス・ボードゲーム「DICE &amp; CROWN」を初めて遊ぶ人向けの、図とゲーム画面つきの簡単なルール説明書。">
+<meta property="og:url" content="https://backstab614-maker.github.io/dice-and-crown-rules/">
+<meta property="og:image" content="https://backstab614-maker.github.io/dice-and-crown-rules/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20x%3D%221%22%20y%3D%221%22%20width%3D%2222%22%20height%3D%2222%22%20rx%3D%225%22%20fill%3D%22%231E1A16%22/%3E%3Crect%20x%3D%224%22%20y%3D%224%22%20width%3D%2216%22%20height%3D%2216%22%20rx%3D%223.5%22%20fill%3D%22none%22%20stroke%3D%22%23D6B260%22%20stroke-width%3D%221.8%22/%3E%3Ccircle%20cx%3D%228.6%22%20cy%3D%228.6%22%20r%3D%221.7%22%20fill%3D%22%23D6B260%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%221.7%22%20fill%3D%22%23D6B260%22/%3E%3Ccircle%20cx%3D%2215.4%22%20cy%3D%2215.4%22%20r%3D%221.7%22%20fill%3D%22%23D6B260%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Shippori+Mincho+B1:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* 配置: 象牙の紙に黒檀の文字（ゲームの UI と同じ素材）。1 列の読み物に、図と画面の写真を挟む。青＝自分、赤＝相手 */
+:root {
+  --paper: #ECE5D5;
+  --sheet: #F7F2E6;
+  --ink: #1E1A16;
+  --ink-soft: #5D5549;
+  --rule: #CDBFA5;
+  --gold: #94742A;
+  --navy: #1D2E50;
+  --p1: #2C62C2;
+  --p1-zone: #3F63A8;
+  --p2: #BC3232;
+  --p2-zone: #9A3A3A;
+  --stone: #B8B2A6;
+  --void: #23232A;
+  --reach: #2E9E78;
+  --ok: #2E8B5B;
+  --ng: #C0392B;
+  --f-display: "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --f-body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  --f-latin: "Cinzel", Georgia, "Times New Roman", serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #13110E; --sheet: #1C1814; --ink: #ECE4D2; --ink-soft: #ABA08D; --rule: #3A3229;
+  --gold: #D3AF5B; --navy: #A9BCE4; --p1: #6E9BF0; --p1-zone: #3E5C9A; --p2: #EE7272; --p2-zone: #8E3838;
+  --stone: #8F8A80; --void: #0C0C10; --reach: #3DBA8E; --ok: #4FB37E; --ng: #EF6B5D; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --paper: #13110E; --sheet: #1C1814; --ink: #ECE4D2; --ink-soft: #ABA08D; --rule: #3A3229;
+  --gold: #D3AF5B; --navy: #A9BCE4; --p1: #6E9BF0; --p1-zone: #3E5C9A; --p2: #EE7272; --p2-zone: #8E3838;
+  --stone: #8F8A80; --void: #0C0C10; --reach: #3DBA8E; --ok: #4FB37E; --ng: #EF6B5D; color-scheme: dark; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.85;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 64px; }
+.wrap { max-width: 980px; margin: 0 auto; }
+.prose { max-width: 44em; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; line-height: 1.35; margin: 0; }
+p { margin: 0; }
+a { color: var(--p1); }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 3px; }
+strong { font-weight: 700; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* 表紙 */
+.hero { padding-block: 48px 28px; display: grid; gap: 18px; }
+.logo { font-family: var(--f-latin); font-weight: 700; letter-spacing: .14em; font-size: 15px; color: var(--gold);
+  display: flex; align-items: center; gap: 10px; }
+.logo svg { width: 22px; height: 22px; }
+.hero h1 { font-size: clamp(34px, 6vw, 56px); font-weight: 800; letter-spacing: .02em; }
+.lead { font-size: 18px; max-width: 36em; color: var(--ink); }
+.meta { font-size: 13px; color: var(--ink-soft); }
+.three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule); margin-top: 8px; }
+.three > div { padding: 14px 16px 16px 0; display: grid; gap: 4px; align-content: start; }
+.three > div + div { padding-left: 16px; border-left: 1px solid var(--rule); }
+.three .k { font-family: var(--f-latin); color: var(--gold); font-size: 13px; letter-spacing: .12em; }
+.three p { font-size: 15px; line-height: 1.7; }
+
+/* 目次 */
+.toc { margin: 28px 0 8px; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; padding: 0; list-style: none; }
+.toc a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid transparent; }
+.toc a:hover { color: var(--ink); border-bottom-color: var(--gold); }
+.toc b { font-family: var(--f-latin); color: var(--gold); margin-right: 4px; font-weight: 600; }
+
+/* 章 */
+section.ch { padding-top: 56px; display: grid; gap: 18px; scroll-margin-top: 12px; }
+.ch-head { display: grid; gap: 4px; border-top: 1px solid var(--rule); padding-top: 18px; }
+.ch-no { font-family: var(--f-latin); color: var(--gold); font-size: 13px; letter-spacing: .14em; }
+.ch h2 { font-size: clamp(24px, 3.6vw, 32px); font-weight: 800; }
+.ch h3 { font-size: 19px; font-weight: 700; margin-top: 8px; }
+.ch ul, .ch ol { margin: 0; padding-left: 1.3em; display: grid; gap: 6px; }
+.ch li::marker { color: var(--gold); }
+
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.two > * { min-width: 0; display: grid; gap: 14px; }
+
+/* 図と写真 */
+figure { margin: 0; display: grid; gap: 8px; min-width: 0; }
+figcaption { font-size: 13px; color: var(--ink-soft); line-height: 1.6; }
+.fig-svg { width: 100%; height: auto; display: block; }
+.fig-box { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 16px; }
+.shot img { display: block; width: 100%; height: auto; border-radius: 4px; background: #000; }
+.row-figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+.range-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+
+/* 表 */
+.tbl-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 10px 14px 10px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+thead th { font-size: 12px; letter-spacing: .08em; color: var(--ink-soft); font-weight: 500; border-bottom: 2px solid var(--ink); }
+td.cost { font-weight: 700; font-variant-numeric: tabular-nums; }
+tbody th { font-weight: 700; white-space: nowrap; }
+
+/* ターンの 3 段 */
+.steps { list-style: none; padding: 0 !important; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 !important; }
+.steps li { padding: 4px 18px 4px 0; display: grid; gap: 6px; align-content: start; }
+.steps li + li { padding-left: 18px; border-left: 1px solid var(--rule); }
+.steps .st { font-family: var(--f-latin); color: var(--gold); font-size: 13px; letter-spacing: .12em; }
+.steps h3 { margin: 0; }
+
+/* 注意・補足 */
+.note { border-left: 3px solid var(--gold); padding: 4px 0 4px 14px; font-size: 15px; color: var(--ink); }
+.note b { color: var(--gold); }
+.stat { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--sheet); }
+.stat div { padding: 10px 16px; display: grid; gap: 0; border-right: 1px solid var(--rule); min-width: 0; }
+.stat div:last-child { border-right: 0; }
+.stat .l { font-size: 11px; letter-spacing: .1em; color: var(--ink-soft); font-family: var(--f-latin); }
+.stat .v { font-family: var(--f-latin); font-weight: 700; font-size: 24px; font-variant-numeric: tabular-nums; }
+
+/* 早見表 */
+.card { background: var(--sheet); border: 1px solid var(--rule); border-radius: 8px; padding: 22px 24px; display: grid; gap: 14px; }
+.card dl { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 8px 20px; font-size: 15px; }
+.card dt { font-weight: 700; }
+.card dd { margin: 0; }
+
+/* SVG の色（テーマに合わせる） */
+.c-void { fill: var(--void); }
+.board-fig { grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 24px; align-items: center; }
+.board-legend { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 10px; font-size: 14px; line-height: 1.55; }
+.board-legend li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; }
+.board-legend strong { display: block; font-size: 15px; }
+.sw { width: 20px; height: 20px; border-radius: 3px; margin-top: 2px; display: block; }
+.sw-p1 { background: var(--p1-zone); }
+.sw-p2 { background: var(--p2-zone); }
+.sw-void { background: var(--void); }
+.sw-path { background: var(--stone); box-shadow: inset 0 0 0 2px var(--p1); }
+.sw-h1 { background: repeating-linear-gradient(45deg, var(--p1) 0 3px, var(--void) 3px 6px); }
+.sw-h2 { background: repeating-linear-gradient(45deg, var(--p2) 0 3px, var(--void) 3px 6px); }
+.nets { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(78px, 1fr)); gap: 16px 12px; }
+.nets li { display: grid; justify-items: center; align-content: end; gap: 6px; }
+.nets span { font-family: var(--f-latin); font-weight: 700; font-size: 15px; }
+.net-svg { width: 100%; height: auto; display: block; }
+.place-row, .aw-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.ptitle { font-size: 13px; font-weight: 700; line-height: 1.45; text-wrap: balance; }
+td.n { white-space: nowrap; }
+.aw-row figcaption span { word-break: keep-all; overflow-wrap: anywhere; }
+.aw-row figure, .aw-row figcaption { align-content: start; }
+.place-row figure { display: flex; flex-direction: column; justify-content: space-between; gap: 6px; }
+.place-row .ptitle { margin: 0; }
+.ptitle.ng { color: var(--ng); }
+.aw-row figcaption { display: grid; text-align: center; font-size: 13px; color: var(--ink); }
+.aw-row figcaption strong { font-size: 14px; }
+.gold { color: var(--gold); font-family: var(--f-latin); }
+.c-void-soft { fill: var(--sheet); }
+.c-path { fill: var(--stone); }
+.c-p1zone { fill: var(--p1-zone); }
+.c-p2zone { fill: var(--p2-zone); }
+.c-p1path { fill: var(--stone); stroke: var(--p1); stroke-width: 2; }
+.c-p2path { fill: var(--stone); stroke: var(--p2); stroke-width: 2; }
+.hatch-p1 { fill: var(--p1); opacity: .75; }
+.hatch-p2 { fill: var(--p2); opacity: .75; }
+.c-net { fill: var(--navy); stroke: var(--sheet); stroke-width: 1.5; }
+.c-new-ok { fill: var(--ok); opacity: .9; }
+.c-new-ng { fill: var(--ng); opacity: .85; }
+.c-reach { fill: var(--reach); }
+.c-target { fill: var(--p2); opacity: .8; }
+.grid { stroke: var(--paper); stroke-opacity: .35; stroke-width: 1; }
+.frame { fill: none; stroke: var(--ink-soft); stroke-width: 1.5; }
+.lead { stroke: var(--ink-soft); stroke-width: 1; stroke-dasharray: 2 3; }
+.tok-p1 { fill: var(--p1); stroke: var(--sheet); stroke-width: 2; }
+.tok-p2 { fill: var(--p2); stroke: var(--sheet); stroke-width: 2; }
+.tok-sel { stroke: var(--gold); stroke-width: 3; }
+.tok-awake { stroke: var(--gold); stroke-width: 3.5; }
+.tok-t { fill: #fff; font-family: var(--f-body); font-size: 11px; font-weight: 700; text-anchor: middle; }
+.reach-t { fill: #fff; font-family: var(--f-latin); font-weight: 700; font-size: 14px; text-anchor: middle; }
+.dist-t { fill: var(--ink-soft); font-family: var(--f-latin); font-size: 11px; text-anchor: middle; }
+.dist-t.on { fill: #fff; font-weight: 700; }
+.lab, .lab-p1, .lab-p2 { font-family: var(--f-body); font-size: 15px; font-weight: 700; fill: var(--ink); }
+.lab-p1 { fill: var(--p1); }
+.lab-p2 { fill: var(--p2); }
+.lab-sub { font-family: var(--f-body); font-size: 13px; fill: var(--ink-soft); }
+.axis-c { font-family: var(--f-body); font-size: 14px; fill: var(--ink); text-anchor: middle; }
+.axis-c.small { font-size: 12px; fill: var(--ink-soft); }
+.axis-c.strong { font-weight: 700; }
+.axis-r { font-family: var(--f-body); font-size: 12px; fill: var(--ink-soft); text-anchor: end; }
+.gridline { stroke: var(--rule); stroke-width: 1; }
+.baseline { stroke: var(--ink); stroke-width: 1.5; }
+.bar { fill: var(--navy); opacity: .55; }
+.bar-hi { opacity: 1; }
+.die { fill: var(--sheet); stroke: var(--ink); stroke-width: 1.6; }
+.die-gold { fill: #E5C46A; stroke: #7A5A12; }
+.pip { fill: var(--ink); }
+.pip-dark { fill: #2E2208; }
+.t-sm { font-size: 13px; }
+.block-t { fill: var(--ng); font-family: var(--f-body); font-size: 18px; font-weight: 700; text-anchor: middle; }
+.t-ok, .t-ng, .t-crit { font-family: var(--f-body); font-size: 14px; font-weight: 700; }
+.t-ok { fill: var(--ink); }
+.t-ng { fill: var(--ng); }
+.t-crit { fill: var(--gold); font-size: 17px; }
+.t-gold { fill: var(--gold); font-weight: 700; font-family: var(--f-latin); }
+.mark-ng { fill: none; stroke: var(--ng); stroke-width: 2.5; }
+.arrow { stroke: var(--gold); stroke-width: 2.5; marker-end: none; }
+.arrow-c { fill: none; stroke: var(--ink-soft); stroke-width: 2; }
+
+@media (max-width: 760px) {
+  .two, .three, .steps { grid-template-columns: minmax(0, 1fr); }
+  .three > div + div, .steps li + li { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); padding-top: 12px; }
+  .steps li { padding-bottom: 12px; }
+  .range-row { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .card dl { grid-template-columns: minmax(0, 1fr); gap: 2px 0; }
+  .card dd { margin-bottom: 8px; }
+  .board-fig { grid-template-columns: minmax(0, 1fr); }
+  .place-row, .aw-row { gap: 8px; }
+  .stat div { padding: 10px 12px; }
+  .ptitle { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="8.5" cy="8.5" r="1.7" fill="currentColor"/><circle cx="12" cy="12" r="1.7" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.7" fill="currentColor"/></svg>DICE &amp; CROWN</div>
+  <h1>はじめてのルール</h1>
+  <p class="lead">2 人で遊ぶ対戦ボードゲームです。毎ターン ダイスを振って「マナ」を集め、そのマナでユニットを召喚して盤に道を広げ、相手のロードをねらいます。</p>
+  <div class="three">
+    <div><span class="k">DICE</span><p>ダイス 3 個を振り、出た目の合計がそのターンの<strong>マナ</strong>になる。</p></div>
+    <div><span class="k">SUMMON</span><p>マナで<strong>召喚・移動・攻撃・スキル</strong>。召喚すると盤に 6 マスの道ができる。</p></div>
+    <div><span class="k">LORD</span><p>相手の<strong>ロードの HP を 0</strong> にしたら勝ち。</p></div>
+  </div>
+  <ol class="toc">
+    <li><a href="#win"><b>1</b>勝ち負け</a></li>
+    <li><a href="#setup"><b>2</b>はじめの準備</a></li>
+    <li><a href="#turn"><b>3</b>ターンの流れ</a></li>
+    <li><a href="#summon"><b>4</b>召喚</a></li>
+    <li><a href="#move"><b>5</b>移動</a></li>
+    <li><a href="#attack"><b>6</b>攻撃</a></li>
+    <li><a href="#awaken"><b>7</b>覚醒</a></li>
+    <li><a href="#skill"><b>8</b>スキルと状態</a></li>
+    <li><a href="#more"><b>9</b>慣れてきたら</a></li>
+    <li><a href="#card"><b>10</b>早見表</a></li>
+  </ol>
+</header>
+
+<section class="ch" id="win">
+  <div class="ch-head"><span class="ch-no">CHAPTER 1</span><h2>勝ち負け</h2></div>
+  <div class="prose"><ul>
+    <li>相手の<strong>ロード</strong>の HP を 0 にしたら勝ちです。</li>
+    <li>両方のロードが同時に 0 になったら引き分けです。</li>
+    <li>自分の番でも相手の番でも、いつでも<strong>投了</strong>できます（投了した側の負け）。</li>
+    <li>ターン数の上限はありません。</li>
+  </ul></div>
+</section>
+
+<section class="ch" id="setup">
+  <div class="ch-head"><span class="ch-no">CHAPTER 2</span><h2>はじめの準備</h2></div>
+  <figure class="fig-box board-fig"><svg viewBox="0 0 362 362" role="img" aria-label="盤の全体図" xmlns="http://www.w3.org/2000/svg" class="fig-svg" style="max-width:420px"><defs><pattern id="hatch-p1" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" class="c-void"/><rect width="2.4" height="6" class="hatch-p1"/></pattern><pattern id="hatch-p2" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" class="c-void"/><rect width="2.4" height="6" class="hatch-p2"/></pattern></defs><rect x="16" y="16" width="22" height="22" class="c-p2zone" /><rect x="38" y="16" width="22" height="22" class="c-p2zone" /><rect x="60" y="16" width="22" height="22" class="c-p2zone" /><rect x="82" y="16" width="22" height="22" class="c-p2zone" /><rect x="104" y="16" width="22" height="22" class="c-p2zone" /><rect x="126" y="16" width="22" height="22" class="c-p2zone" /><rect x="148" y="16" width="22" height="22" class="c-p2zone" /><rect x="170" y="16" width="22" height="22" class="c-p2zone" /><rect x="192" y="16" width="22" height="22" class="c-p2zone" /><rect x="214" y="16" width="22" height="22" class="c-p2zone" /><rect x="236" y="16" width="22" height="22" class="c-p2zone" /><rect x="258" y="16" width="22" height="22" class="c-p2zone" /><rect x="280" y="16" width="22" height="22" class="c-p2zone" /><rect x="302" y="16" width="22" height="22" class="c-p2zone" /><rect x="324" y="16" width="22" height="22" class="c-p2zone" /><rect x="16" y="38" width="22" height="22" class="c-p2zone" /><rect x="38" y="38" width="22" height="22" class="c-p2zone" /><rect x="60" y="38" width="22" height="22" class="c-p2zone" /><rect x="82" y="38" width="22" height="22" class="c-p2zone" /><rect x="104" y="38" width="22" height="22" class="c-p2zone" /><rect x="126" y="38" width="22" height="22" class="c-p2zone" /><rect x="148" y="38" width="22" height="22" class="c-p2zone" /><rect x="170" y="38" width="22" height="22" class="c-p2zone" /><rect x="192" y="38" width="22" height="22" class="c-p2zone" /><rect x="214" y="38" width="22" height="22" class="c-p2zone" /><rect x="236" y="38" width="22" height="22" class="c-p2zone" /><rect x="258" y="38" width="22" height="22" class="c-p2zone" /><rect x="280" y="38" width="22" height="22" class="c-p2zone" /><rect x="302" y="38" width="22" height="22" class="c-p2zone" /><rect x="324" y="38" width="22" height="22" class="c-p2zone" /><rect x="16" y="60" width="22" height="22" class="c-void" /><rect x="38" y="60" width="22" height="22" class="c-void" /><rect x="60" y="60" width="22" height="22" class="c-void" /><rect x="82" y="60" width="22" height="22" class="c-void" /><rect x="104" y="60" width="22" height="22" class="c-void" /><rect x="126" y="60" width="22" height="22" class="c-void" /><rect x="148" y="60" width="22" height="22" class="c-void" /><rect x="170" y="60" width="22" height="22" class="c-void" /><rect x="192" y="60" width="22" height="22" class="c-void" /><rect x="214" y="60" width="22" height="22" class="c-void" /><rect x="236" y="60" width="22" height="22" class="c-void" /><rect x="258" y="60" width="22" height="22" class="c-void" /><rect x="280" y="60" width="22" height="22" class="c-void" /><rect x="302" y="60" width="22" height="22" class="c-void" /><rect x="324" y="60" width="22" height="22" class="c-void" /><rect x="16" y="82" width="22" height="22" class="c-void" /><rect x="38" y="82" width="22" height="22" class="c-void" /><rect x="60" y="82" width="22" height="22" class="c-void" /><rect x="82" y="82" width="22" height="22" class="c-void" /><rect x="104" y="82" width="22" height="22" class="c-void" /><rect x="126" y="82" width="22" height="22" class="c-void" /><rect x="148" y="82" width="22" height="22" class="c-void" /><rect x="170" y="82" width="22" height="22" class="c-void" /><rect x="192" y="82" width="22" height="22" class="c-void" /><rect x="214" y="82" width="22" height="22" class="c-void" /><rect x="236" y="82" width="22" height="22" class="c-void" /><rect x="258" y="82" width="22" height="22" class="c-void" /><rect x="280" y="82" width="22" height="22" class="c-void" /><rect x="302" y="82" width="22" height="22" class="c-void" /><rect x="324" y="82" width="22" height="22" class="c-void" /><rect x="16" y="104" width="22" height="22" class="c-void" /><rect x="38" y="104" width="22" height="22" class="c-void" /><rect x="60" y="104" width="22" height="22" class="c-void" /><rect x="82" y="104" width="22" height="22" class="c-void" /><rect x="104" y="104" width="22" height="22" class="c-void" /><rect x="126" y="104" width="22" height="22" class="c-void" /><rect x="148" y="104" width="22" height="22" class="c-void" /><rect x="170" y="104" width="22" height="22" class="c-void" /><rect x="192" y="104" width="22" height="22" class="c-void" /><rect x="214" y="104" width="22" height="22" class="c-void" /><rect x="236" y="104" width="22" height="22" class="c-void" /><rect x="258" y="104" width="22" height="22" class="c-void" /><rect x="280" y="104" width="22" height="22" class="c-void" /><rect x="302" y="104" width="22" height="22" class="c-void" /><rect x="324" y="104" width="22" height="22" class="c-void" /><rect x="16" y="126" width="22" height="22" class="c-void" /><rect x="38" y="126" width="22" height="22" class="c-void" /><rect x="60" y="126" width="22" height="22" class="c-void" /><rect x="82" y="126" width="22" height="22" class="c-void" /><rect x="104" y="126" width="22" height="22" class="c-void" /><rect x="126" y="126" width="22" height="22" class="c-void" /><rect x="148" y="126" width="22" height="22" class="c-void" /><rect x="170" y="126" width="22" height="22" class="c-void" /><rect x="192" y="126" width="22" height="22" class="c-void" /><rect x="214" y="126" width="22" height="22" class="c-void" /><rect x="236" y="126" width="22" height="22" class="c-void" /><rect x="258" y="126" width="22" height="22" class="c-void" /><rect x="280" y="126" width="22" height="22" class="c-void" /><rect x="302" y="126" width="22" height="22" class="c-void" /><rect x="324" y="126" width="22" height="22" class="c-void" /><rect x="16" y="148" width="22" height="22" class="c-void" /><rect x="38" y="148" width="22" height="22" class="c-void" /><rect x="60" y="148" width="22" height="22" class="c-void" /><rect x="82" y="148" width="22" height="22" class="c-void" /><rect x="104" y="148" width="22" height="22" class="c-void" /><rect x="126" y="148" width="22" height="22" class="c-void" /><rect x="148" y="148" width="22" height="22" class="c-void" /><rect x="170" y="148" width="22" height="22" class="c-void" /><rect x="192" y="148" width="22" height="22" class="c-void" /><rect x="214" y="148" width="22" height="22" class="c-void" /><rect x="236" y="148" width="22" height="22" class="c-void" /><rect x="258" y="148" width="22" height="22" class="c-void" /><rect x="280" y="148" width="22" height="22" class="c-void" /><rect x="302" y="148" width="22" height="22" class="c-void" /><rect x="324" y="148" width="22" height="22" class="c-void" /><rect x="16" y="170" width="22" height="22" class="c-void" /><rect x="38" y="170" width="22" height="22" class="c-void" /><rect x="60" y="170" width="22" height="22" class="c-void" /><rect x="82" y="170" width="22" height="22" class="c-void" /><rect x="104" y="170" width="22" height="22" class="c-void" /><rect x="126" y="170" width="22" height="22" class="c-void" /><rect x="148" y="170" width="22" height="22" class="c-void" /><rect x="170" y="170" width="22" height="22" class="c-void" /><rect x="192" y="170" width="22" height="22" class="c-void" /><rect x="214" y="170" width="22" height="22" class="c-void" /><rect x="236" y="170" width="22" height="22" class="c-void" /><rect x="258" y="170" width="22" height="22" class="c-void" /><rect x="280" y="170" width="22" height="22" class="c-void" /><rect x="302" y="170" width="22" height="22" class="c-void" /><rect x="324" y="170" width="22" height="22" class="c-void" /><rect x="16" y="192" width="22" height="22" class="c-void" /><rect x="38" y="192" width="22" height="22" class="c-void" /><rect x="60" y="192" width="22" height="22" class="c-void" /><rect x="82" y="192" width="22" height="22" class="c-void" /><rect x="104" y="192" width="22" height="22" class="c-void" /><rect x="126" y="192" width="22" height="22" class="c-void" /><rect x="148" y="192" width="22" height="22" class="c-void" /><rect x="170" y="192" width="22" height="22" class="c-void" /><rect x="192" y="192" width="22" height="22" class="c-void" /><rect x="214" y="192" width="22" height="22" class="c-void" /><rect x="236" y="192" width="22" height="22" class="c-void" /><rect x="258" y="192" width="22" height="22" class="c-void" /><rect x="280" y="192" width="22" height="22" class="c-void" /><rect x="302" y="192" width="22" height="22" class="c-void" /><rect x="324" y="192" width="22" height="22" class="c-void" /><rect x="16" y="214" width="22" height="22" class="c-void" /><rect x="38" y="214" width="22" height="22" class="c-void" /><rect x="60" y="214" width="22" height="22" class="c-void" /><rect x="82" y="214" width="22" height="22" class="c-void" /><rect x="104" y="214" width="22" height="22" class="c-void" /><rect x="126" y="214" width="22" height="22" class="c-void" /><rect x="148" y="214" width="22" height="22" class="c-void" /><rect x="170" y="214" width="22" height="22" class="c-void" /><rect x="192" y="214" width="22" height="22" class="c-void" /><rect x="214" y="214" width="22" height="22" class="c-void" /><rect x="236" y="214" width="22" height="22" class="c-void" /><rect x="258" y="214" width="22" height="22" class="c-void" /><rect x="280" y="214" width="22" height="22" class="c-void" /><rect x="302" y="214" width="22" height="22" class="c-void" /><rect x="324" y="214" width="22" height="22" class="c-void" /><rect x="16" y="236" width="22" height="22" class="c-void" /><rect x="38" y="236" width="22" height="22" class="c-void" /><rect x="60" y="236" width="22" height="22" class="c-void" /><rect x="82" y="236" width="22" height="22" class="c-void" /><rect x="104" y="236" width="22" height="22" class="c-void" /><rect x="126" y="236" width="22" height="22" class="c-void" /><rect x="148" y="236" width="22" height="22" class="c-void" /><rect x="170" y="236" width="22" height="22" class="c-void" /><rect x="192" y="236" width="22" height="22" class="c-void" /><rect x="214" y="236" width="22" height="22" class="c-void" /><rect x="236" y="236" width="22" height="22" class="c-void" /><rect x="258" y="236" width="22" height="22" class="c-void" /><rect x="280" y="236" width="22" height="22" class="c-void" /><rect x="302" y="236" width="22" height="22" class="c-void" /><rect x="324" y="236" width="22" height="22" class="c-void" /><rect x="16" y="258" width="22" height="22" class="c-void" /><rect x="38" y="258" width="22" height="22" class="c-void" /><rect x="60" y="258" width="22" height="22" class="c-void" /><rect x="82" y="258" width="22" height="22" class="c-void" /><rect x="104" y="258" width="22" height="22" class="c-void" /><rect x="126" y="258" width="22" height="22" class="c-void" /><rect x="148" y="258" width="22" height="22" class="c-void" /><rect x="170" y="258" width="22" height="22" class="c-void" /><rect x="192" y="258" width="22" height="22" class="c-void" /><rect x="214" y="258" width="22" height="22" class="c-void" /><rect x="236" y="258" width="22" height="22" class="c-void" /><rect x="258" y="258" width="22" height="22" class="c-void" /><rect x="280" y="258" width="22" height="22" class="c-void" /><rect x="302" y="258" width="22" height="22" class="c-void" /><rect x="324" y="258" width="22" height="22" class="c-void" /><rect x="16" y="280" width="22" height="22" class="c-void" /><rect x="38" y="280" width="22" height="22" class="c-void" /><rect x="60" y="280" width="22" height="22" class="c-void" /><rect x="82" y="280" width="22" height="22" class="c-void" /><rect x="104" y="280" width="22" height="22" class="c-void" /><rect x="126" y="280" width="22" height="22" class="c-void" /><rect x="148" y="280" width="22" height="22" class="c-void" /><rect x="170" y="280" width="22" height="22" class="c-void" /><rect x="192" y="280" width="22" height="22" class="c-void" /><rect x="214" y="280" width="22" height="22" class="c-void" /><rect x="236" y="280" width="22" height="22" class="c-void" /><rect x="258" y="280" width="22" height="22" class="c-void" /><rect x="280" y="280" width="22" height="22" class="c-void" /><rect x="302" y="280" width="22" height="22" class="c-void" /><rect x="324" y="280" width="22" height="22" class="c-void" /><rect x="16" y="302" width="22" height="22" class="c-p1zone" /><rect x="38" y="302" width="22" height="22" class="c-p1zone" /><rect x="60" y="302" width="22" height="22" class="c-p1zone" /><rect x="82" y="302" width="22" height="22" class="c-p1zone" /><rect x="104" y="302" width="22" height="22" class="c-p1zone" /><rect x="126" y="302" width="22" height="22" class="c-p1zone" /><rect x="148" y="302" width="22" height="22" class="c-p1zone" /><rect x="170" y="302" width="22" height="22" class="c-p1zone" /><rect x="192" y="302" width="22" height="22" class="c-p1zone" /><rect x="214" y="302" width="22" height="22" class="c-p1zone" /><rect x="236" y="302" width="22" height="22" class="c-p1zone" /><rect x="258" y="302" width="22" height="22" class="c-p1zone" /><rect x="280" y="302" width="22" height="22" class="c-p1zone" /><rect x="302" y="302" width="22" height="22" class="c-p1zone" /><rect x="324" y="302" width="22" height="22" class="c-p1zone" /><rect x="16" y="324" width="22" height="22" class="c-p1zone" /><rect x="38" y="324" width="22" height="22" class="c-p1zone" /><rect x="60" y="324" width="22" height="22" class="c-p1zone" /><rect x="82" y="324" width="22" height="22" class="c-p1zone" /><rect x="104" y="324" width="22" height="22" class="c-p1zone" /><rect x="126" y="324" width="22" height="22" class="c-p1zone" /><rect x="148" y="324" width="22" height="22" class="c-p1zone" /><rect x="170" y="324" width="22" height="22" class="c-p1zone" /><rect x="192" y="324" width="22" height="22" class="c-p1zone" /><rect x="214" y="324" width="22" height="22" class="c-p1zone" /><rect x="236" y="324" width="22" height="22" class="c-p1zone" /><rect x="258" y="324" width="22" height="22" class="c-p1zone" /><rect x="280" y="324" width="22" height="22" class="c-p1zone" /><rect x="302" y="324" width="22" height="22" class="c-p1zone" /><rect x="324" y="324" width="22" height="22" class="c-p1zone" /><rect x="16" y="60" width="330" height="22" fill="url(#hatch-p1)"/><rect x="16" y="280" width="330" height="22" fill="url(#hatch-p2)"/><rect x="82" y="280" width="22" height="22" class="c-p1path" /><rect x="82" y="258" width="22" height="22" class="c-p1path" /><rect x="104" y="258" width="22" height="22" class="c-p1path" /><rect x="104" y="236" width="22" height="22" class="c-p1path" /><rect x="126" y="236" width="22" height="22" class="c-p1path" /><rect x="126" y="214" width="22" height="22" class="c-p1path" /><rect x="236" y="60" width="22" height="22" class="c-p2path" /><rect x="236" y="82" width="22" height="22" class="c-p2path" /><rect x="258" y="82" width="22" height="22" class="c-p2path" /><rect x="280" y="82" width="22" height="22" class="c-p2path" /><rect x="302" y="82" width="22" height="22" class="c-p2path" /><rect x="258" y="104" width="22" height="22" class="c-p2path" /><line x1="16" y1="16" x2="16" y2="346" class="grid"/><line x1="16" y1="16" x2="346" y2="16" class="grid"/><line x1="38" y1="16" x2="38" y2="346" class="grid"/><line x1="16" y1="38" x2="346" y2="38" class="grid"/><line x1="60" y1="16" x2="60" y2="346" class="grid"/><line x1="16" y1="60" x2="346" y2="60" class="grid"/><line x1="82" y1="16" x2="82" y2="346" class="grid"/><line x1="16" y1="82" x2="346" y2="82" class="grid"/><line x1="104" y1="16" x2="104" y2="346" class="grid"/><line x1="16" y1="104" x2="346" y2="104" class="grid"/><line x1="126" y1="16" x2="126" y2="346" class="grid"/><line x1="16" y1="126" x2="346" y2="126" class="grid"/><line x1="148" y1="16" x2="148" y2="346" class="grid"/><line x1="16" y1="148" x2="346" y2="148" class="grid"/><line x1="170" y1="16" x2="170" y2="346" class="grid"/><line x1="16" y1="170" x2="346" y2="170" class="grid"/><line x1="192" y1="16" x2="192" y2="346" class="grid"/><line x1="16" y1="192" x2="346" y2="192" class="grid"/><line x1="214" y1="16" x2="214" y2="346" class="grid"/><line x1="16" y1="214" x2="346" y2="214" class="grid"/><line x1="236" y1="16" x2="236" y2="346" class="grid"/><line x1="16" y1="236" x2="346" y2="236" class="grid"/><line x1="258" y1="16" x2="258" y2="346" class="grid"/><line x1="16" y1="258" x2="346" y2="258" class="grid"/><line x1="280" y1="16" x2="280" y2="346" class="grid"/><line x1="16" y1="280" x2="346" y2="280" class="grid"/><line x1="302" y1="16" x2="302" y2="346" class="grid"/><line x1="16" y1="302" x2="346" y2="302" class="grid"/><line x1="324" y1="16" x2="324" y2="346" class="grid"/><line x1="16" y1="324" x2="346" y2="324" class="grid"/><line x1="346" y1="16" x2="346" y2="346" class="grid"/><line x1="16" y1="346" x2="346" y2="346" class="grid"/><circle cx="181.0" cy="27.0" r="8.5" class="tok-p2"/><text x="181.0" y="31.2" class="tok-t">王</text><circle cx="181.0" cy="335.0" r="8.5" class="tok-p1"/><text x="181.0" y="339.2" class="tok-t">王</text><circle cx="137.0" cy="225.0" r="7" class="tok-p1"/><circle cx="291.0" cy="93.0" r="7" class="tok-p2"/><rect x="16" y="16" width="330" height="330" class="frame"/></svg><div><figcaption>盤の全体。青が自分、赤が相手。</figcaption><ul class="board-legend">
+        <li><i class="sw sw-p2"></i><span><strong>相手の陣地（奥の 2 列）</strong>最初から歩けるマス</span></li>
+        <li><i class="sw sw-h1"></i><span><strong>青の斜線の列</strong>青は召喚したユニットをここに置けない（相手の陣地のすぐ前）</span></li>
+        <li><i class="sw sw-void"></i><span><strong>はじめは何もないマス（15 × 11）</strong>歩けない。召喚で道を作る</span></li>
+        <li><i class="sw sw-path"></i><span><strong>召喚で置いた展開図</strong>道になる。縁の色が持ち主</span></li>
+        <li><i class="sw sw-h2"></i><span><strong>赤の斜線の列</strong>赤は召喚したユニットをここに置けない</span></li>
+        <li><i class="sw sw-p1"></i><span><strong>自分の陣地（手前の 2 列）</strong>ロード（王）は端の列の真ん中から始まる</span></li>
+      </ul></div></figure>
+  <div class="two">
+    <div>
+      <h3>盤</h3>
+      <ul>
+        <li>盤は縦 15 × 横 15 マス。</li>
+        <li>手前と奥の端 2 列は、それぞれのプレイヤーの<strong>陣地</strong>です。陣地は最初から歩けます。</li>
+        <li>その間の 15 × 11 マスは、はじめは何もない（歩けない）マス。召喚で道を作っていきます。</li>
+      </ul>
+      <h3>デッキ</h3>
+      <ul>
+        <li>デッキは最大 10 体のユニット。はじめはサンプルデッキから選びます。</li>
+        <li>お互いのデッキは<strong>公開</strong>。相手がどのユニットを持っているか、いつでも見られます。</li>
+        <li>召喚はデッキから好きな 1 体を選べます（引く順番はありません）。</li>
+      </ul>
+    </div>
+    <div>
+      <h3>ロード</h3>
+      <p>自分の分身にあたるユニット。陣地の端の列の真ん中から始めます。ロードも移動・攻撃ができ、デッキごとに決まったスキル（ヒールなど）を持ちます。サンプルデッキのロードの能力:</p>
+      <div class="stat" aria-label="ロードの能力">
+        <div><span class="l">HP</span><span class="v">15</span></div>
+        <div><span class="l">AT</span><span class="v">4</span></div>
+        <div><span class="l">MOV</span><span class="v">3</span></div>
+        <div><span class="l">RANGE</span><span class="v">1-2</span></div>
+      </div>
+      <h3>先手と後手</h3>
+      <ul>
+        <li>お互いにダイスを振り、合計の大きいほうが先手です。</li>
+        <li>後手は<strong>ミシックマナ 1</strong> を持って始めます。ミシックマナはターンが終わっても消えないマナで、いつでも足して使えます。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="turn">
+  <div class="ch-head"><span class="ch-no">CHAPTER 3</span><h2>ターンの流れ</h2></div>
+  <ol class="steps">
+    <li><span class="st">STEP 1</span><h3>ダイスを振る</h3><p>ダイス 3 個を振ります。出た目の合計がこのターンの<strong>マナ</strong>です。</p></li>
+    <li><span class="st">STEP 2</span><h3>マナを使って行動</h3><p>下の表の行動を、好きな順番で、マナがある限り何度でも。</p></li>
+    <li><span class="st">STEP 3</span><h3>ターン終了</h3><p>余ったマナは消えます（ミシックマナは残ります）。相手の番へ。</p></li>
+  </ol>
+  <div class="two">
+    <figure class="fig-box"><svg viewBox="0 0 332 78" role="img" aria-label="ダイスの 6 つの面は 1、1、2、2、3、3" xmlns="http://www.w3.org/2000/svg" class="fig-svg"><rect x="4" y="4" width="44" height="44" rx="7.92" class="die"/><circle cx="26.0" cy="26.0" r="3.74" class="pip"/><text x="26.0" y="72" class="axis-c">1</text><rect x="60" y="4" width="44" height="44" rx="7.92" class="die"/><circle cx="82.0" cy="26.0" r="3.74" class="pip"/><text x="82.0" y="72" class="axis-c">1</text><rect x="116" y="4" width="44" height="44" rx="7.92" class="die"/><circle cx="127.88" cy="15.88" r="3.74" class="pip"/><circle cx="148.12" cy="36.12" r="3.74" class="pip"/><text x="138.0" y="72" class="axis-c">2</text><rect x="172" y="4" width="44" height="44" rx="7.92" class="die"/><circle cx="183.88" cy="15.88" r="3.74" class="pip"/><circle cx="204.12" cy="36.12" r="3.74" class="pip"/><text x="194.0" y="72" class="axis-c">2</text><rect x="228" y="4" width="44" height="44" rx="7.92" class="die"/><circle cx="239.88" cy="15.88" r="3.74" class="pip"/><circle cx="250.0" cy="26.0" r="3.74" class="pip"/><circle cx="260.12" cy="36.12" r="3.74" class="pip"/><text x="250.0" y="72" class="axis-c">3</text><rect x="284" y="4" width="44" height="44" rx="7.92" class="die"/><circle cx="295.88" cy="15.88" r="3.74" class="pip"/><circle cx="306.0" cy="26.0" r="3.74" class="pip"/><circle cx="316.12" cy="36.12" r="3.74" class="pip"/><text x="306.0" y="72" class="axis-c">3</text></svg><figcaption>ダイスの面は 1・1・2・2・3・3。3 個の合計は 3〜9 で、平均は 6。</figcaption></figure>
+    <figure class="fig-box"><svg viewBox="0 0 460 220" role="img" aria-label="ダイス 3 個の合計の出やすさ。6 がいちばん多い" xmlns="http://www.w3.org/2000/svg" class="fig-svg"><line x1="40" y1="180.0" x2="452" y2="180.0" class="gridline"/><text x="32" y="184.0" class="axis-r">0%</text><line x1="40" y1="118.3" x2="452" y2="118.3" class="gridline"/><text x="32" y="122.3" class="axis-r">10%</text><line x1="40" y1="56.6" x2="452" y2="56.6" class="gridline"/><text x="32" y="60.6" class="axis-r">20%</text><line x1="40" y1="-5.1" x2="452" y2="-5.1" class="gridline"/><text x="32" y="-1.1" class="axis-r">30%</text><rect x="52" y="157.1" width="46" height="22.9" rx="3" class="bar"/><text x="75.0" y="151.1" class="axis-c small">4%</text><text x="75.0" y="200" class="axis-c">3</text><rect x="110" y="111.4" width="46" height="68.6" rx="3" class="bar"/><text x="133.0" y="105.4" class="axis-c small">11%</text><text x="133.0" y="200" class="axis-c">4</text><rect x="168" y="42.9" width="46" height="137.1" rx="3" class="bar"/><text x="191.0" y="36.9" class="axis-c small">22%</text><text x="191.0" y="200" class="axis-c">5</text><rect x="226" y="20.0" width="46" height="160.0" rx="3" class="bar bar-hi"/><text x="249.0" y="14.0" class="axis-c small">26%</text><text x="249.0" y="200" class="axis-c">6</text><rect x="284" y="42.9" width="46" height="137.1" rx="3" class="bar"/><text x="307.0" y="36.9" class="axis-c small">22%</text><text x="307.0" y="200" class="axis-c">7</text><rect x="342" y="111.4" width="46" height="68.6" rx="3" class="bar"/><text x="365.0" y="105.4" class="axis-c small">11%</text><text x="365.0" y="200" class="axis-c">8</text><rect x="400" y="157.1" width="46" height="22.9" rx="3" class="bar"/><text x="423.0" y="151.1" class="axis-c small">4%</text><text x="423.0" y="200" class="axis-c">9</text><line x1="40" y1="180" x2="452" y2="180" class="baseline"/></svg><figcaption>合計（マナ）の出やすさ。6 前後がよく出て、9 はまれ（27 回に 1 回）。</figcaption></figure>
+  </div>
+  <h3>1 ターンにできること</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>行動</th><th>回数</th><th>払うマナ</th></tr></thead>
+    <tbody>
+      <tr><th>召喚</th><td class="n">1 ターンに 1 回</td><td class="cost">ユニットのコスト分</td></tr>
+      <tr><th>移動</th><td class="n">1 体につき 1 回</td><td class="cost">1 マス 1 マナ</td></tr>
+      <tr><th>攻撃</th><td class="n">1 体につき 1 回</td><td class="cost">2 マナ</td></tr>
+      <tr><th>スキル</th><td class="n">1 体につき 1 回</td><td class="cost">スキルごとに違う</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note prose">「1 体につき 1 回」なので、盤にユニットが 3 体いれば、マナが足りる限り 3 体ともそれぞれ移動と攻撃ができます。ロードも 1 体として数えます。</p>
+  <h3>持ち時間</h3>
+  <div class="prose"><ul>
+    <li>1 人 10 分（デッキ選択の画面で 20 分・30 分・無制限にもできます）。</li>
+    <li>使い切ると、1 回の操作ごとに 20 秒の秒読みになります。</li>
+    <li>秒読みも切れると、自動でターン終了（負けにはなりません）。</li>
+    <li>戦闘やスキルの演出の間と、ダイスを振るのを待っている間は、時計が止まります。</li>
+  </ul></div>
+</section>
+
+<section class="ch" id="summon">
+  <div class="ch-head"><span class="ch-no">CHAPTER 4</span><h2>召喚</h2></div>
+  <div class="prose"><p>このゲームのいちばんの特徴です。ユニットにはそれぞれ<strong>展開図</strong>（サイコロを開いた 6 マスの形）が決まっていて、召喚するとその形が盤に置かれ、新しい道になります。</p></div>
+  <div class="two">
+    <div>
+      <h3>召喚のしかた</h3>
+      <ol>
+        <li>コスト分のマナを払い、デッキからユニットを 1 体選ぶ。</li>
+        <li>そのユニットの展開図を盤に置く。<strong>回転も裏返しもできます。</strong></li>
+        <li>ユニットを、置いた展開図の上か、自エリアの空いたマスに置く。</li>
+      </ol>
+      <h3>展開図を置ける場所</h3>
+      <ul>
+        <li><strong>自エリア</strong>（自分の陣地と、自分が置いた展開図のマス）に<strong>辺で接する</strong>ように置きます。角だけで接していても置けません。</li>
+        <li>陣地の上（自分のも相手のも）、相手の道の上、ユニットのいるマスには置けません。</li>
+      </ul>
+    </div>
+    <div>
+      <figure class="fig-box"><div class="place-row"><figure><p class="ptitle ok">○ 辺で接する</p><svg viewBox="0 0 156 118" role="img" aria-label="○ 辺で接する" xmlns="http://www.w3.org/2000/svg" class="fig-svg"><rect x="2" y="2" width="19" height="19" class="c-void" /><rect x="21" y="2" width="19" height="19" class="c-void" /><rect x="40" y="2" width="19" height="19" class="c-void" /><rect x="59" y="2" width="19" height="19" class="c-void" /><rect x="78" y="2" width="19" height="19" class="c-void" /><rect x="97" y="2" width="19" height="19" class="c-void" /><rect x="116" y="2" width="19" height="19" class="c-void" /><rect x="135" y="2" width="19" height="19" class="c-void" /><rect x="2" y="21" width="19" height="19" class="c-void" /><rect x="21" y="21" width="19" height="19" class="c-void" /><rect x="40" y="21" width="19" height="19" class="c-void" /><rect x="59" y="21" width="19" height="19" class="c-void" /><rect x="78" y="21" width="19" height="19" class="c-void" /><rect x="97" y="21" width="19" height="19" class="c-void" /><rect x="116" y="21" width="19" height="19" class="c-void" /><rect x="135" y="21" width="19" height="19" class="c-void" /><rect x="2" y="40" width="19" height="19" class="c-void" /><rect x="21" y="40" width="19" height="19" class="c-void" /><rect x="40" y="40" width="19" height="19" class="c-void" /><rect x="59" y="40" width="19" height="19" class="c-void" /><rect x="78" y="40" width="19" height="19" class="c-void" /><rect x="97" y="40" width="19" height="19" class="c-void" /><rect x="116" y="40" width="19" height="19" class="c-void" /><rect x="135" y="40" width="19" height="19" class="c-void" /><rect x="2" y="59" width="19" height="19" class="c-void" /><rect x="21" y="59" width="19" height="19" class="c-void" /><rect x="40" y="59" width="19" height="19" class="c-void" /><rect x="59" y="59" width="19" height="19" class="c-void" /><rect x="78" y="59" width="19" height="19" class="c-void" /><rect x="97" y="59" width="19" height="19" class="c-void" /><rect x="116" y="59" width="19" height="19" class="c-void" /><rect x="135" y="59" width="19" height="19" class="c-void" /><rect x="2" y="78" width="19" height="19" class="c-p1zone" /><rect x="21" y="78" width="19" height="19" class="c-p1zone" /><rect x="40" y="78" width="19" height="19" class="c-p1zone" /><rect x="59" y="78" width="19" height="19" class="c-p1zone" /><rect x="78" y="78" width="19" height="19" class="c-p1zone" /><rect x="97" y="78" width="19" height="19" class="c-p1zone" /><rect x="116" y="78" width="19" height="19" class="c-p1zone" /><rect x="135" y="78" width="19" height="19" class="c-p1zone" /><rect x="2" y="97" width="19" height="19" class="c-p1zone" /><rect x="21" y="97" width="19" height="19" class="c-p1zone" /><rect x="40" y="97" width="19" height="19" class="c-p1zone" /><rect x="59" y="97" width="19" height="19" class="c-p1zone" /><rect x="78" y="97" width="19" height="19" class="c-p1zone" /><rect x="97" y="97" width="19" height="19" class="c-p1zone" /><rect x="116" y="97" width="19" height="19" class="c-p1zone" /><rect x="135" y="97" width="19" height="19" class="c-p1zone" /><rect x="21" y="21" width="19" height="19" class="c-new-ok" /><rect x="40" y="21" width="19" height="19" class="c-new-ok" /><rect x="40" y="40" width="19" height="19" class="c-new-ok" /><rect x="59" y="40" width="19" height="19" class="c-new-ok" /><rect x="59" y="59" width="19" height="19" class="c-new-ok" /><rect x="78" y="59" width="19" height="19" class="c-new-ok" /><line x1="2" y1="2" x2="2" y2="116" class="grid"/><line x1="21" y1="2" x2="21" y2="116" class="grid"/><line x1="40" y1="2" x2="40" y2="116" class="grid"/><line x1="59" y1="2" x2="59" y2="116" class="grid"/><line x1="78" y1="2" x2="78" y2="116" class="grid"/><line x1="97" y1="2" x2="97" y2="116" class="grid"/><line x1="116" y1="2" x2="116" y2="116" class="grid"/><line x1="135" y1="2" x2="135" y2="116" class="grid"/><line x1="154" y1="2" x2="154" y2="116" class="grid"/><line x1="2" y1="2" x2="154" y2="2" class="grid"/><line x1="2" y1="21" x2="154" y2="21" class="grid"/><line x1="2" y1="40" x2="154" y2="40" class="grid"/><line x1="2" y1="59" x2="154" y2="59" class="grid"/><line x1="2" y1="78" x2="154" y2="78" class="grid"/><line x1="2" y1="97" x2="154" y2="97" class="grid"/><line x1="2" y1="116" x2="154" y2="116" class="grid"/><rect x="2" y="2" width="152" height="114" class="frame"/></svg></figure><figure><p class="ptitle ng">× 角だけで接する</p><svg viewBox="0 0 156 118" role="img" aria-label="× 角だけで接する" xmlns="http://www.w3.org/2000/svg" class="fig-svg"><rect x="2" y="2" width="19" height="19" class="c-void" /><rect x="21" y="2" width="19" height="19" class="c-void" /><rect x="40" y="2" width="19" height="19" class="c-void" /><rect x="59" y="2" width="19" height="19" class="c-void" /><rect x="78" y="2" width="19" height="19" class="c-void" /><rect x="97" y="2" width="19" height="19" class="c-void" /><rect x="116" y="2" width="19" height="19" class="c-void" /><rect x="135" y="2" width="19" height="19" class="c-void" /><rect x="2" y="21" width="19" height="19" class="c-void" /><rect x="21" y="21" width="19" height="19" class="c-void" /><rect x="40" y="21" width="19" height="19" class="c-void" /><rect x="59" y="21" width="19" height="19" class="c-void" /><rect x="78" y="21" width="19" height="19" class="c-void" /><rect x="97" y="21" width="19" height="19" class="c-void" /><rect x="116" y="21" width="19" height="19" class="c-void" /><rect x="135" y="21" width="19" height="19" class="c-void" /><rect x="2" y="40" width="19" height="19" class="c-void" /><rect x="21" y="40" width="19" height="19" class="c-void" /><rect x="40" y="40" width="19" height="19" class="c-void" /><rect x="59" y="40" width="19" height="19" class="c-void" /><rect x="78" y="40" width="19" height="19" class="c-void" /><rect x="97" y="40" width="19" height="19" class="c-void" /><rect x="116" y="40" width="19" height="19" class="c-void" /><rect x="135" y="40" width="19" height="19" class="c-void" /><rect x="2" y="59" width="19" height="19" class="c-void" /><rect x="21" y="59" width="19" height="19" class="c-void" /><rect x="40" y="59" width="19" height="19" class="c-void" /><rect x="59" y="59" width="19" height="19" class="c-void" /><rect x="78" y="59" width="19" height="19" class="c-void" /><rect x="97" y="59" width="19" height="19" class="c-void" /><rect x="116" y="59" width="19" height="19" class="c-void" /><rect x="135" y="59" width="19" height="19" class="c-void" /><rect x="2" y="78" width="19" height="19" class="c-p1zone" /><rect x="21" y="78" width="19" height="19" class="c-p1zone" /><rect x="40" y="78" width="19" height="19" class="c-p1zone" /><rect x="59" y="78" width="19" height="19" class="c-p1zone" /><rect x="78" y="78" width="19" height="19" class="c-p1zone" /><rect x="97" y="78" width="19" height="19" class="c-p1zone" /><rect x="116" y="78" width="19" height="19" class="c-p1zone" /><rect x="135" y="78" width="19" height="19" class="c-p1zone" /><rect x="2" y="97" width="19" height="19" class="c-p1zone" /><rect x="21" y="97" width="19" height="19" class="c-p1zone" /><rect x="40" y="97" width="19" height="19" class="c-p1zone" /><rect x="59" y="97" width="19" height="19" class="c-p1zone" /><rect x="78" y="97" width="19" height="19" class="c-p1zone" /><rect x="97" y="97" width="19" height="19" class="c-p1zone" /><rect x="116" y="97" width="19" height="19" class="c-p1zone" /><rect x="135" y="97" width="19" height="19" class="c-p1zone" /><rect x="78" y="59" width="19" height="19" class="c-p1path" /><rect x="97" y="59" width="19" height="19" class="c-p1path" /><rect x="97" y="40" width="19" height="19" class="c-p1path" /><rect x="116" y="40" width="19" height="19" class="c-p1path" /><rect x="116" y="21" width="19" height="19" class="c-p1path" /><rect x="135" y="21" width="19" height="19" class="c-p1path" /><rect x="2" y="2" width="19" height="19" class="c-new-ng" /><rect x="21" y="2" width="19" height="19" class="c-new-ng" /><rect x="21" y="21" width="19" height="19" class="c-new-ng" /><rect x="40" y="21" width="19" height="19" class="c-new-ng" /><rect x="40" y="40" width="19" height="19" class="c-new-ng" /><rect x="59" y="40" width="19" height="19" class="c-new-ng" /><line x1="2" y1="2" x2="2" y2="116" class="grid"/><line x1="21" y1="2" x2="21" y2="116" class="grid"/><line x1="40" y1="2" x2="40" y2="116" class="grid"/><line x1="59" y1="2" x2="59" y2="116" class="grid"/><line x1="78" y1="2" x2="78" y2="116" class="grid"/><line x1="97" y1="2" x2="97" y2="116" class="grid"/><line x1="116" y1="2" x2="116" y2="116" class="grid"/><line x1="135" y1="2" x2="135" y2="116" class="grid"/><line x1="154" y1="2" x2="154" y2="116" class="grid"/><line x1="2" y1="2" x2="154" y2="2" class="grid"/><line x1="2" y1="21" x2="154" y2="21" class="grid"/><line x1="2" y1="40" x2="154" y2="40" class="grid"/><line x1="2" y1="59" x2="154" y2="59" class="grid"/><line x1="2" y1="78" x2="154" y2="78" class="grid"/><line x1="2" y1="97" x2="154" y2="97" class="grid"/><line x1="2" y1="116" x2="154" y2="116" class="grid"/><rect x="2" y="2" width="152" height="114" class="frame"/><circle cx="78" cy="59" r="6" class="mark-ng"/></svg></figure><figure><p class="ptitle ng">× 陣地に重なる</p><svg viewBox="0 0 156 118" role="img" aria-label="× 陣地に重なる" xmlns="http://www.w3.org/2000/svg" class="fig-svg"><rect x="2" y="2" width="19" height="19" class="c-void" /><rect x="21" y="2" width="19" height="19" class="c-void" /><rect x="40" y="2" width="19" height="19" class="c-void" /><rect x="59" y="2" width="19" height="19" class="c-void" /><rect x="78" y="2" width="19" height="19" class="c-void" /><rect x="97" y="2" width="19" height="19" class="c-void" /><rect x="116" y="2" width="19" height="19" class="c-void" /><rect x="135" y="2" width="19" height="19" class="c-void" /><rect x="2" y="21" width="19" height="19" class="c-void" /><rect x="21" y="21" width="19" height="19" class="c-void" /><rect x="40" y="21" width="19" height="19" class="c-void" /><rect x="59" y="21" width="19" height="19" class="c-void" /><rect x="78" y="21" width="19" height="19" class="c-void" /><rect x="97" y="21" width="19" height="19" class="c-void" /><rect x="116" y="21" width="19" height="19" class="c-void" /><rect x="135" y="21" width="19" height="19" class="c-void" /><rect x="2" y="40" width="19" height="19" class="c-void" /><rect x="21" y="40" width="19" height="19" class="c-void" /><rect x="40" y="40" width="19" height="19" class="c-void" /><rect x="59" y="40" width="19" height="19" class="c-void" /><rect x="78" y="40" width="19" height="19" class="c-void" /><rect x="97" y="40" width="19" height="19" class="c-void" /><rect x="116" y="40" width="19" height="19" class="c-void" /><rect x="135" y="40" width="19" height="19" class="c-void" /><rect x="2" y="59" width="19" height="19" class="c-void" /><rect x="21" y="59" width="19" height="19" class="c-void" /><rect x="40" y="59" width="19" height="19" class="c-void" /><rect x="59" y="59" width="19" height="19" class="c-void" /><rect x="78" y="59" width="19" height="19" class="c-void" /><rect x="97" y="59" width="19" height="19" class="c-void" /><rect x="116" y="59" width="19" height="19" class="c-void" /><rect x="135" y="59" width="19" height="19" class="c-void" /><rect x="2" y="78" width="19" height="19" class="c-p1zone" /><rect x="21" y="78" width="19" height="19" class="c-p1zone" /><rect x="40" y="78" width="19" height="19" class="c-p1zone" /><rect x="59" y="78" width="19" height="19" class="c-p1zone" /><rect x="78" y="78" width="19" height="19" class="c-p1zone" /><rect x="97" y="78" width="19" height="19" class="c-p1zone" /><rect x="116" y="78" width="19" height="19" class="c-p1zone" /><rect x="135" y="78" width="19" height="19" class="c-p1zone" /><rect x="2" y="97" width="19" height="19" class="c-p1zone" /><rect x="21" y="97" width="19" height="19" class="c-p1zone" /><rect x="40" y="97" width="19" height="19" class="c-p1zone" /><rect x="59" y="97" width="19" height="19" class="c-p1zone" /><rect x="78" y="97" width="19" height="19" class="c-p1zone" /><rect x="97" y="97" width="19" height="19" class="c-p1zone" /><rect x="116" y="97" width="19" height="19" class="c-p1zone" /><rect x="135" y="97" width="19" height="19" class="c-p1zone" /><rect x="40" y="40" width="19" height="19" class="c-new-ng" /><rect x="59" y="40" width="19" height="19" class="c-new-ng" /><rect x="59" y="59" width="19" height="19" class="c-new-ng" /><rect x="78" y="59" width="19" height="19" class="c-new-ng" /><rect x="78" y="78" width="19" height="19" class="c-new-ng" /><rect x="97" y="78" width="19" height="19" class="c-new-ng" /><line x1="2" y1="2" x2="2" y2="116" class="grid"/><line x1="21" y1="2" x2="21" y2="116" class="grid"/><line x1="40" y1="2" x2="40" y2="116" class="grid"/><line x1="59" y1="2" x2="59" y2="116" class="grid"/><line x1="78" y1="2" x2="78" y2="116" class="grid"/><line x1="97" y1="2" x2="97" y2="116" class="grid"/><line x1="116" y1="2" x2="116" y2="116" class="grid"/><line x1="135" y1="2" x2="135" y2="116" class="grid"/><line x1="154" y1="2" x2="154" y2="116" class="grid"/><line x1="2" y1="2" x2="154" y2="2" class="grid"/><line x1="2" y1="21" x2="154" y2="21" class="grid"/><line x1="2" y1="40" x2="154" y2="40" class="grid"/><line x1="2" y1="59" x2="154" y2="59" class="grid"/><line x1="2" y1="78" x2="154" y2="78" class="grid"/><line x1="2" y1="97" x2="154" y2="97" class="grid"/><line x1="2" y1="116" x2="154" y2="116" class="grid"/><rect x="2" y="2" width="152" height="114" class="frame"/></svg></figure></div><figcaption>緑は置ける、赤は置けない。下の青い 2 列が自分の陣地、縁取りのマスが前に置いた自分の展開図。</figcaption></figure>
+      <h3>召喚したターンは</h3>
+      <ul>
+        <li>移動はできますが、<strong>攻撃とスキルはできません</strong>（「疾風」などのスキルを持つユニットは別）。</li>
+        <li>召喚したユニットは、相手の陣地のすぐ前の 1 列には置けません。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row-figs">
+    <figure class="shot "><img src="img/deploy-shape.webp" width="980" height="320" alt="展開図の置き場所を選んでいる画面" loading="lazy"><figcaption>① 置ける場所で展開図が水色に光る。向きを変えてからクリックで置く</figcaption></figure>
+    <figure class="shot "><img src="img/deploy-unit.webp" width="980" height="320" alt="ユニットを置くマスを選んでいる画面" loading="lazy"><figcaption>② 次に、ユニットを置くマスを選ぶ（光っているマスならどこでも）</figcaption></figure>
+  </div>
+  <figure class="fig-box"><ul class="nets" aria-label="展開図の 11 種類"><li><svg viewBox="-2 -2 60 46" class="net-svg" style="max-width:60px" aria-hidden="true"><rect x="0" y="0" width="14" height="14" class="c-net" /><rect x="0" y="14" width="14" height="14" class="c-net" /><rect x="14" y="14" width="14" height="14" class="c-net" /><rect x="28" y="14" width="14" height="14" class="c-net" /><rect x="42" y="14" width="14" height="14" class="c-net" /><rect x="0" y="28" width="14" height="14" class="c-net" /></svg><span>A</span></li><li><svg viewBox="-2 -2 60 46" class="net-svg" style="max-width:60px" aria-hidden="true"><rect x="0" y="0" width="14" height="14" class="c-net" /><rect x="0" y="14" width="14" height="14" class="c-net" /><rect x="14" y="14" width="14" height="14" class="c-net" /><rect x="28" y="14" width="14" height="14" class="c-net" /><rect x="42" y="14" width="14" height="14" class="c-net" /><rect x="14" y="28" width="14" height="14" class="c-net" /></svg><span>B</span></li><li><svg viewBox="-2 -2 60 46" class="net-svg" style="max-width:60px" aria-hidden="true"><rect x="0" y="0" width="14" height="14" class="c-net" /><rect x="0" y="14" width="14" height="14" class="c-net" /><rect x="14" y="14" width="14" height="14" class="c-net" /><rect x="28" y="14" width="14" height="14" class="c-net" /><rect x="42" y="14" width="14" height="14" class="c-net" /><rect x="28" y="28" width="14" height="14" class="c-net" /></svg><span>C</span></li><li><svg viewBox="-2 -2 60 46" class="net-svg" style="max-width:60px" aria-hidden="true"><rect x="0" y="0" width="14" height="14" class="c-net" /><rect x="0" y="14" width="14" height="14" class="c-net" /><rect x="14" y="14" width="14" height="14" class="c-net" /><rect x="28" y="14" width="14" height="14" class="c-net" /><rect x="42" y="14" width="14" height="14" class="c-net" /><rect x="42" y="28" width="14" height="14" class="c-net" /></svg><span>D</span></li><li><svg viewBox="-2 -2 60 46" class="net-svg" style="max-width:60px" aria-hidden="true"><rect x="14" y="0" width="14" height="14" class="c-net" /><rect x="0" y="14" width="14" height="14" class="c-net" /><rect x="14" y="14" width="14" height="14" class="c-net" /><rect x="28" y="14" width="14" height="14" class="c-net" /><rect x="42" y="14" width="14" height="14" class="c-net" /><rect x="14" y="28" width="14" height="14" class="c-net" /></svg><span>E</span></li><li><svg viewBox="-2 -2 60 46" class="net-svg" style="max-width:60px" aria-hidden="true"><rect x="14" y="0" width="14" height="14" class="c-net" /><rect x="0" y="14" width="14" height="14" class="c-net" /><rect x="14" y="14" width="14" height="14" class="c-net" /><rect x="28" y="14" width="14" height="14" class="c-net" /><rect x="42" y="14" width="14" height="14" class="c-net" /><rect x="28" y="28" width="14" height="14" class="c-net" /></svg><span>F</span></li><li><svg viewBox="-2 -2 60 46" class="net-svg" style="max-width:60px" aria-hidden="true"><rect x="0" y="0" width="14" height="14" class="c-net" /><rect x="14" y="0" width="14" height="14" class="c-net" /><rect x="14" y="14" width="14" height="14" class="c-net" /><rect x="28" y="14" width="14" height="14" class="c-net" /><rect x="42" y="14" width="14" height="14" class="c-net" /><rect x="14" y="28" width="14" height="14" class="c-net" /></svg><span>G</span></li><li><svg viewBox="-2 -2 60 46" class="net-svg" style="max-width:60px" aria-hidden="true"><rect x="0" y="0" width="14" height="14" class="c-net" /><rect x="14" y="0" width="14" height="14" class="c-net" /><rect x="14" y="14" width="14" height="14" class="c-net" /><rect x="28" y="14" width="14" height="14" class="c-net" /><rect x="42" y="14" width="14" height="14" class="c-net" /><rect x="28" y="28" width="14" height="14" class="c-net" /></svg><span>H</span></li><li><svg viewBox="-2 -2 60 46" class="net-svg" style="max-width:60px" aria-hidden="true"><rect x="0" y="0" width="14" height="14" class="c-net" /><rect x="14" y="0" width="14" height="14" class="c-net" /><rect x="14" y="14" width="14" height="14" class="c-net" /><rect x="28" y="14" width="14" height="14" class="c-net" /><rect x="42" y="14" width="14" height="14" class="c-net" /><rect x="42" y="28" width="14" height="14" class="c-net" /></svg><span>I</span></li><li><svg viewBox="-2 -2 74 32" class="net-svg" style="max-width:74px" aria-hidden="true"><rect x="0" y="0" width="14" height="14" class="c-net" /><rect x="14" y="0" width="14" height="14" class="c-net" /><rect x="28" y="0" width="14" height="14" class="c-net" /><rect x="28" y="14" width="14" height="14" class="c-net" /><rect x="42" y="14" width="14" height="14" class="c-net" /><rect x="56" y="14" width="14" height="14" class="c-net" /></svg><span>J</span></li><li><svg viewBox="-2 -2 60 46" class="net-svg" style="max-width:60px" aria-hidden="true"><rect x="0" y="0" width="14" height="14" class="c-net" /><rect x="14" y="0" width="14" height="14" class="c-net" /><rect x="14" y="14" width="14" height="14" class="c-net" /><rect x="28" y="14" width="14" height="14" class="c-net" /><rect x="28" y="28" width="14" height="14" class="c-net" /><rect x="42" y="28" width="14" height="14" class="c-net" /></svg><span>K</span></li></ul><figcaption>展開図の形は全部で 11 種類。どのユニットがどの形かは決まっていて、ユニットを選ぶと画面右の UNIT 欄に出ます。</figcaption></figure>
+</section>
+
+<section class="ch" id="move">
+  <div class="ch-head"><span class="ch-no">CHAPTER 5</span><h2>移動</h2></div>
+  <div class="two">
+    <div>
+      <ul>
+        <li>歩けるのは<strong>道と陣地</strong>だけ。相手が置いた道も歩けます。</li>
+        <li>縦か横に 1 マスずつ進みます（斜めには進めません）。<strong>1 マス 1 マナ</strong>。</li>
+        <li>1 回の移動で進めるのは、そのユニットの<strong>移動力（MOV）</strong>まで。</li>
+        <li>味方のいるマスは通り抜けられます。敵のいるマスは通れません。どちらのマスにも止まれません。</li>
+        <li><strong>待った</strong>: 直前の移動 1 回だけ、取り消してやり直せます（移動して何も起きなかったときだけ）。</li>
+      </ul>
+    </div>
+    <figure class="fig-box"><svg viewBox="0 0 274 184" role="img" aria-label="移動力 3 のユニットが行けるマス" xmlns="http://www.w3.org/2000/svg" class="fig-svg"><rect x="2" y="2" width="30" height="30" class="c-void" /><rect x="32" y="2" width="30" height="30" class="c-void" /><rect x="62" y="2" width="30" height="30" class="c-void" /><rect x="92" y="2" width="30" height="30" class="c-void" /><rect x="122" y="2" width="30" height="30" class="c-void" /><rect x="152" y="2" width="30" height="30" class="c-void" /><rect x="182" y="2" width="30" height="30" class="c-void" /><rect x="212" y="2" width="30" height="30" class="c-void" /><rect x="242" y="2" width="30" height="30" class="c-void" /><rect x="2" y="32" width="30" height="30" class="c-void" /><rect x="32" y="32" width="30" height="30" class="c-void" /><rect x="62" y="32" width="30" height="30" class="c-void" /><rect x="92" y="32" width="30" height="30" class="c-void" /><rect x="122" y="32" width="30" height="30" class="c-reach" /><rect x="152" y="32" width="30" height="30" class="c-path" /><rect x="182" y="32" width="30" height="30" class="c-path" /><rect x="212" y="32" width="30" height="30" class="c-void" /><rect x="242" y="32" width="30" height="30" class="c-void" /><rect x="2" y="62" width="30" height="30" class="c-void" /><rect x="32" y="62" width="30" height="30" class="c-void" /><rect x="62" y="62" width="30" height="30" class="c-reach" /><rect x="92" y="62" width="30" height="30" class="c-path" /><rect x="122" y="62" width="30" height="30" class="c-path" /><rect x="152" y="62" width="30" height="30" class="c-void" /><rect x="182" y="62" width="30" height="30" class="c-path" /><rect x="212" y="62" width="30" height="30" class="c-void" /><rect x="242" y="62" width="30" height="30" class="c-void" /><rect x="2" y="92" width="30" height="30" class="c-void" /><rect x="32" y="92" width="30" height="30" class="c-void" /><rect x="62" y="92" width="30" height="30" class="c-reach" /><rect x="92" y="92" width="30" height="30" class="c-void" /><rect x="122" y="92" width="30" height="30" class="c-void" /><rect x="152" y="92" width="30" height="30" class="c-void" /><rect x="182" y="92" width="30" height="30" class="c-path" /><rect x="212" y="92" width="30" height="30" class="c-path" /><rect x="242" y="92" width="30" height="30" class="c-void" /><rect x="2" y="122" width="30" height="30" class="c-p1zone" /><rect x="32" y="122" width="30" height="30" class="c-p1zone" /><rect x="62" y="122" width="30" height="30" class="c-p1zone" /><rect x="92" y="122" width="30" height="30" class="c-p1zone" /><rect x="122" y="122" width="30" height="30" class="c-p1zone" /><rect x="152" y="122" width="30" height="30" class="c-p1zone" /><rect x="182" y="122" width="30" height="30" class="c-p1zone" /><rect x="212" y="122" width="30" height="30" class="c-p1zone" /><rect x="242" y="122" width="30" height="30" class="c-p1zone" /><rect x="2" y="152" width="30" height="30" class="c-p1zone" /><rect x="32" y="152" width="30" height="30" class="c-p1zone" /><rect x="62" y="152" width="30" height="30" class="c-p1zone" /><rect x="92" y="152" width="30" height="30" class="c-p1zone" /><rect x="122" y="152" width="30" height="30" class="c-p1zone" /><rect x="152" y="152" width="30" height="30" class="c-p1zone" /><rect x="182" y="152" width="30" height="30" class="c-p1zone" /><rect x="212" y="152" width="30" height="30" class="c-p1zone" /><rect x="242" y="152" width="30" height="30" class="c-p1zone" /><line x1="2" y1="2" x2="2" y2="182" class="grid"/><line x1="32" y1="2" x2="32" y2="182" class="grid"/><line x1="62" y1="2" x2="62" y2="182" class="grid"/><line x1="92" y1="2" x2="92" y2="182" class="grid"/><line x1="122" y1="2" x2="122" y2="182" class="grid"/><line x1="152" y1="2" x2="152" y2="182" class="grid"/><line x1="182" y1="2" x2="182" y2="182" class="grid"/><line x1="212" y1="2" x2="212" y2="182" class="grid"/><line x1="242" y1="2" x2="242" y2="182" class="grid"/><line x1="272" y1="2" x2="272" y2="182" class="grid"/><line x1="2" y1="2" x2="272" y2="2" class="grid"/><line x1="2" y1="32" x2="272" y2="32" class="grid"/><line x1="2" y1="62" x2="272" y2="62" class="grid"/><line x1="2" y1="92" x2="272" y2="92" class="grid"/><line x1="2" y1="122" x2="272" y2="122" class="grid"/><line x1="2" y1="152" x2="272" y2="152" class="grid"/><line x1="2" y1="182" x2="272" y2="182" class="grid"/><text x="137.0" y="52.0" class="reach-t">1</text><text x="77.0" y="82.0" class="reach-t">2</text><text x="77.0" y="112.0" class="reach-t">3</text><text x="197.0" y="53.0" class="block-t">×</text><circle cx="137.0" cy="77.0" r="11" class="tok-p1 tok-sel"/><text x="137.0" y="81.5" class="tok-t">動</text><circle cx="107.0" cy="77.0" r="11" class="tok-p1"/><text x="107.0" y="81.5" class="tok-t">味</text><circle cx="167.0" cy="47.0" r="11" class="tok-p2"/><text x="167.0" y="51.5" class="tok-t">敵</text><rect x="2" y="2" width="270" height="180" class="frame"/></svg><figcaption>移動力 3 の「動」が行けるマス（緑）。数字はそのマスまでに払うマナ。「味」（味方）は通り抜けて左へ進めるが、「敵」がいるので右上の道（×）へは行けない。</figcaption></figure>
+  </div>
+  <figure class="shot "><img src="img/move-attack.webp" width="1210" height="440" alt="ロードを選んだ画面。行けるマスが緑、攻撃できる敵が赤に光る" loading="lazy"><figcaption>ユニットを選ぶと、行けるマスが緑、攻撃できる敵が赤に光る</figcaption></figure>
+</section>
+
+<section class="ch" id="attack">
+  <div class="ch-head"><span class="ch-no">CHAPTER 6</span><h2>攻撃</h2></div>
+  <div class="two">
+    <div>
+      <ul>
+        <li><strong>2 マナ</strong>で、射程の中にいる敵ユニット（ロードも）を 1 体攻撃します。</li>
+        <li>距離は<strong>縦と横のマス数を足した数</strong>で数えます。斜め隣は 2 です。間に道が無くても届きます。</li>
+        <li>攻撃するとダイスを 2 個振ります。<strong>3・3 ならクリティカル</strong>でダメージが AT の 2 倍。それ以外は AT のままです。</li>
+        <li>ダメージは HP から引かれ、次のターンも残ります（回復はスキルだけ）。</li>
+        <li>HP が 0 になったユニットは破壊されて<strong>墓地</strong>へ。もう召喚できません。置いた道は盤に残ります。</li>
+        <li>攻撃された側は、ふつうはやり返しません（反撃・カウンターのスキルを持つユニットは別）。</li>
+        <li><strong>敵エリア</strong>（相手の陣地と、相手が置いた展開図）に立って攻撃すると AT −1（飛行のユニットは除く）。</li>
+      </ul>
+    </div>
+    <div>
+      <figure class="fig-box"><svg viewBox="0 0 420 112" role="img" aria-label="攻撃ダイスが 3 と 3 ならクリティカル" xmlns="http://www.w3.org/2000/svg" class="fig-svg"><rect x="4" y="8" width="40" height="40" rx="7.199999999999999" class="die die-gold"/><circle cx="14.8" cy="18.8" r="3.4000000000000004" class="pip pip-dark"/><circle cx="24.0" cy="28.0" r="3.4000000000000004" class="pip pip-dark"/><circle cx="33.2" cy="37.2" r="3.4000000000000004" class="pip pip-dark"/><rect x="52" y="8" width="40" height="40" rx="7.199999999999999" class="die die-gold"/><circle cx="62.8" cy="18.8" r="3.4000000000000004" class="pip pip-dark"/><circle cx="72.0" cy="28.0" r="3.4000000000000004" class="pip pip-dark"/><circle cx="81.2" cy="37.2" r="3.4000000000000004" class="pip pip-dark"/><text x="104" y="25" class="t-crit">クリティカル</text><text x="104" y="45" class="lab-sub">ダメージ ＝ AT × 2（9 回に 1 回）</text><rect x="4" y="62" width="40" height="40" rx="7.199999999999999" class="die"/><circle cx="14.8" cy="72.8" r="3.4000000000000004" class="pip"/><circle cx="33.2" cy="91.2" r="3.4000000000000004" class="pip"/><rect x="52" y="62" width="40" height="40" rx="7.199999999999999" class="die"/><circle cx="72.0" cy="82.0" r="3.4000000000000004" class="pip"/><text x="104" y="79" class="lab">それ以外の目</text><text x="104" y="99" class="lab-sub">ダメージ ＝ AT のまま</text></svg></figure>
+      <div class="range-row">
+        <figure><svg viewBox="0 0 158 184" role="img" aria-label="射程 1で攻撃できるマス" xmlns="http://www.w3.org/2000/svg" class="fig-svg"><text x="2" y="16" class="t-ok">射程 1</text><rect x="2" y="26" width="22" height="22" class="c-void-soft" /><rect x="24" y="26" width="22" height="22" class="c-void-soft" /><rect x="46" y="26" width="22" height="22" class="c-void-soft" /><rect x="68" y="26" width="22" height="22" class="c-void-soft" /><text x="79.0" y="41.5" class="dist-t">3</text><rect x="90" y="26" width="22" height="22" class="c-void-soft" /><rect x="112" y="26" width="22" height="22" class="c-void-soft" /><rect x="134" y="26" width="22" height="22" class="c-void-soft" /><rect x="2" y="48" width="22" height="22" class="c-void-soft" /><rect x="24" y="48" width="22" height="22" class="c-void-soft" /><rect x="46" y="48" width="22" height="22" class="c-void-soft" /><text x="57.0" y="63.5" class="dist-t">3</text><rect x="68" y="48" width="22" height="22" class="c-void-soft" /><text x="79.0" y="63.5" class="dist-t">2</text><rect x="90" y="48" width="22" height="22" class="c-void-soft" /><text x="101.0" y="63.5" class="dist-t">3</text><rect x="112" y="48" width="22" height="22" class="c-void-soft" /><rect x="134" y="48" width="22" height="22" class="c-void-soft" /><rect x="2" y="70" width="22" height="22" class="c-void-soft" /><rect x="24" y="70" width="22" height="22" class="c-void-soft" /><text x="35.0" y="85.5" class="dist-t">3</text><rect x="46" y="70" width="22" height="22" class="c-void-soft" /><text x="57.0" y="85.5" class="dist-t">2</text><rect x="68" y="70" width="22" height="22" class="c-target" /><text x="79.0" y="85.5" class="dist-t on">1</text><rect x="90" y="70" width="22" height="22" class="c-void-soft" /><text x="101.0" y="85.5" class="dist-t">2</text><rect x="112" y="70" width="22" height="22" class="c-void-soft" /><text x="123.0" y="85.5" class="dist-t">3</text><rect x="134" y="70" width="22" height="22" class="c-void-soft" /><rect x="2" y="92" width="22" height="22" class="c-void-soft" /><text x="13.0" y="107.5" class="dist-t">3</text><rect x="24" y="92" width="22" height="22" class="c-void-soft" /><text x="35.0" y="107.5" class="dist-t">2</text><rect x="46" y="92" width="22" height="22" class="c-target" /><text x="57.0" y="107.5" class="dist-t on">1</text><rect x="68" y="92" width="22" height="22" class="c-void-soft" /><rect x="90" y="92" width="22" height="22" class="c-target" /><text x="101.0" y="107.5" class="dist-t on">1</text><rect x="112" y="92" width="22" height="22" class="c-void-soft" /><text x="123.0" y="107.5" class="dist-t">2</text><rect x="134" y="92" width="22" height="22" class="c-void-soft" /><text x="145.0" y="107.5" class="dist-t">3</text><rect x="2" y="114" width="22" height="22" class="c-void-soft" /><rect x="24" y="114" width="22" height="22" class="c-void-soft" /><text x="35.0" y="129.5" class="dist-t">3</text><rect x="46" y="114" width="22" height="22" class="c-void-soft" /><text x="57.0" y="129.5" class="dist-t">2</text><rect x="68" y="114" width="22" height="22" class="c-target" /><text x="79.0" y="129.5" class="dist-t on">1</text><rect x="90" y="114" width="22" height="22" class="c-void-soft" /><text x="101.0" y="129.5" class="dist-t">2</text><rect x="112" y="114" width="22" height="22" class="c-void-soft" /><text x="123.0" y="129.5" class="dist-t">3</text><rect x="134" y="114" width="22" height="22" class="c-void-soft" /><rect x="2" y="136" width="22" height="22" class="c-void-soft" /><rect x="24" y="136" width="22" height="22" class="c-void-soft" /><rect x="46" y="136" width="22" height="22" class="c-void-soft" /><text x="57.0" y="151.5" class="dist-t">3</text><rect x="68" y="136" width="22" height="22" class="c-void-soft" /><text x="79.0" y="151.5" class="dist-t">2</text><rect x="90" y="136" width="22" height="22" class="c-void-soft" /><text x="101.0" y="151.5" class="dist-t">3</text><rect x="112" y="136" width="22" height="22" class="c-void-soft" /><rect x="134" y="136" width="22" height="22" class="c-void-soft" /><rect x="2" y="158" width="22" height="22" class="c-void-soft" /><rect x="24" y="158" width="22" height="22" class="c-void-soft" /><rect x="46" y="158" width="22" height="22" class="c-void-soft" /><rect x="68" y="158" width="22" height="22" class="c-void-soft" /><text x="79.0" y="173.5" class="dist-t">3</text><rect x="90" y="158" width="22" height="22" class="c-void-soft" /><rect x="112" y="158" width="22" height="22" class="c-void-soft" /><rect x="134" y="158" width="22" height="22" class="c-void-soft" /><line x1="2" y1="26" x2="2" y2="180" class="grid"/><line x1="2" y1="26" x2="156" y2="26" class="grid"/><line x1="24" y1="26" x2="24" y2="180" class="grid"/><line x1="2" y1="48" x2="156" y2="48" class="grid"/><line x1="46" y1="26" x2="46" y2="180" class="grid"/><line x1="2" y1="70" x2="156" y2="70" class="grid"/><line x1="68" y1="26" x2="68" y2="180" class="grid"/><line x1="2" y1="92" x2="156" y2="92" class="grid"/><line x1="90" y1="26" x2="90" y2="180" class="grid"/><line x1="2" y1="114" x2="156" y2="114" class="grid"/><line x1="112" y1="26" x2="112" y2="180" class="grid"/><line x1="2" y1="136" x2="156" y2="136" class="grid"/><line x1="134" y1="26" x2="134" y2="180" class="grid"/><line x1="2" y1="158" x2="156" y2="158" class="grid"/><line x1="156" y1="26" x2="156" y2="180" class="grid"/><line x1="2" y1="180" x2="156" y2="180" class="grid"/><circle cx="79.0" cy="103.0" r="8" class="tok-p1"/><rect x="2" y="26" width="154" height="154" class="frame"/></svg></figure>
+        <figure><svg viewBox="0 0 158 184" role="img" aria-label="射程 1〜2で攻撃できるマス" xmlns="http://www.w3.org/2000/svg" class="fig-svg"><text x="2" y="16" class="t-ok">射程 1〜2</text><rect x="2" y="26" width="22" height="22" class="c-void-soft" /><rect x="24" y="26" width="22" height="22" class="c-void-soft" /><rect x="46" y="26" width="22" height="22" class="c-void-soft" /><rect x="68" y="26" width="22" height="22" class="c-void-soft" /><text x="79.0" y="41.5" class="dist-t">3</text><rect x="90" y="26" width="22" height="22" class="c-void-soft" /><rect x="112" y="26" width="22" height="22" class="c-void-soft" /><rect x="134" y="26" width="22" height="22" class="c-void-soft" /><rect x="2" y="48" width="22" height="22" class="c-void-soft" /><rect x="24" y="48" width="22" height="22" class="c-void-soft" /><rect x="46" y="48" width="22" height="22" class="c-void-soft" /><text x="57.0" y="63.5" class="dist-t">3</text><rect x="68" y="48" width="22" height="22" class="c-target" /><text x="79.0" y="63.5" class="dist-t on">2</text><rect x="90" y="48" width="22" height="22" class="c-void-soft" /><text x="101.0" y="63.5" class="dist-t">3</text><rect x="112" y="48" width="22" height="22" class="c-void-soft" /><rect x="134" y="48" width="22" height="22" class="c-void-soft" /><rect x="2" y="70" width="22" height="22" class="c-void-soft" /><rect x="24" y="70" width="22" height="22" class="c-void-soft" /><text x="35.0" y="85.5" class="dist-t">3</text><rect x="46" y="70" width="22" height="22" class="c-target" /><text x="57.0" y="85.5" class="dist-t on">2</text><rect x="68" y="70" width="22" height="22" class="c-target" /><text x="79.0" y="85.5" class="dist-t on">1</text><rect x="90" y="70" width="22" height="22" class="c-target" /><text x="101.0" y="85.5" class="dist-t on">2</text><rect x="112" y="70" width="22" height="22" class="c-void-soft" /><text x="123.0" y="85.5" class="dist-t">3</text><rect x="134" y="70" width="22" height="22" class="c-void-soft" /><rect x="2" y="92" width="22" height="22" class="c-void-soft" /><text x="13.0" y="107.5" class="dist-t">3</text><rect x="24" y="92" width="22" height="22" class="c-target" /><text x="35.0" y="107.5" class="dist-t on">2</text><rect x="46" y="92" width="22" height="22" class="c-target" /><text x="57.0" y="107.5" class="dist-t on">1</text><rect x="68" y="92" width="22" height="22" class="c-void-soft" /><rect x="90" y="92" width="22" height="22" class="c-target" /><text x="101.0" y="107.5" class="dist-t on">1</text><rect x="112" y="92" width="22" height="22" class="c-target" /><text x="123.0" y="107.5" class="dist-t on">2</text><rect x="134" y="92" width="22" height="22" class="c-void-soft" /><text x="145.0" y="107.5" class="dist-t">3</text><rect x="2" y="114" width="22" height="22" class="c-void-soft" /><rect x="24" y="114" width="22" height="22" class="c-void-soft" /><text x="35.0" y="129.5" class="dist-t">3</text><rect x="46" y="114" width="22" height="22" class="c-target" /><text x="57.0" y="129.5" class="dist-t on">2</text><rect x="68" y="114" width="22" height="22" class="c-target" /><text x="79.0" y="129.5" class="dist-t on">1</text><rect x="90" y="114" width="22" height="22" class="c-target" /><text x="101.0" y="129.5" class="dist-t on">2</text><rect x="112" y="114" width="22" height="22" class="c-void-soft" /><text x="123.0" y="129.5" class="dist-t">3</text><rect x="134" y="114" width="22" height="22" class="c-void-soft" /><rect x="2" y="136" width="22" height="22" class="c-void-soft" /><rect x="24" y="136" width="22" height="22" class="c-void-soft" /><rect x="46" y="136" width="22" height="22" class="c-void-soft" /><text x="57.0" y="151.5" class="dist-t">3</text><rect x="68" y="136" width="22" height="22" class="c-target" /><text x="79.0" y="151.5" class="dist-t on">2</text><rect x="90" y="136" width="22" height="22" class="c-void-soft" /><text x="101.0" y="151.5" class="dist-t">3</text><rect x="112" y="136" width="22" height="22" class="c-void-soft" /><rect x="134" y="136" width="22" height="22" class="c-void-soft" /><rect x="2" y="158" width="22" height="22" class="c-void-soft" /><rect x="24" y="158" width="22" height="22" class="c-void-soft" /><rect x="46" y="158" width="22" height="22" class="c-void-soft" /><rect x="68" y="158" width="22" height="22" class="c-void-soft" /><text x="79.0" y="173.5" class="dist-t">3</text><rect x="90" y="158" width="22" height="22" class="c-void-soft" /><rect x="112" y="158" width="22" height="22" class="c-void-soft" /><rect x="134" y="158" width="22" height="22" class="c-void-soft" /><line x1="2" y1="26" x2="2" y2="180" class="grid"/><line x1="2" y1="26" x2="156" y2="26" class="grid"/><line x1="24" y1="26" x2="24" y2="180" class="grid"/><line x1="2" y1="48" x2="156" y2="48" class="grid"/><line x1="46" y1="26" x2="46" y2="180" class="grid"/><line x1="2" y1="70" x2="156" y2="70" class="grid"/><line x1="68" y1="26" x2="68" y2="180" class="grid"/><line x1="2" y1="92" x2="156" y2="92" class="grid"/><line x1="90" y1="26" x2="90" y2="180" class="grid"/><line x1="2" y1="114" x2="156" y2="114" class="grid"/><line x1="112" y1="26" x2="112" y2="180" class="grid"/><line x1="2" y1="136" x2="156" y2="136" class="grid"/><line x1="134" y1="26" x2="134" y2="180" class="grid"/><line x1="2" y1="158" x2="156" y2="158" class="grid"/><line x1="156" y1="26" x2="156" y2="180" class="grid"/><line x1="2" y1="180" x2="156" y2="180" class="grid"/><circle cx="79.0" cy="103.0" r="8" class="tok-p1"/><rect x="2" y="26" width="154" height="154" class="frame"/></svg></figure>
+        <figure><svg viewBox="0 0 158 184" role="img" aria-label="射程 2〜3で攻撃できるマス" xmlns="http://www.w3.org/2000/svg" class="fig-svg"><text x="2" y="16" class="t-ok">射程 2〜3</text><rect x="2" y="26" width="22" height="22" class="c-void-soft" /><rect x="24" y="26" width="22" height="22" class="c-void-soft" /><rect x="46" y="26" width="22" height="22" class="c-void-soft" /><rect x="68" y="26" width="22" height="22" class="c-target" /><text x="79.0" y="41.5" class="dist-t on">3</text><rect x="90" y="26" width="22" height="22" class="c-void-soft" /><rect x="112" y="26" width="22" height="22" class="c-void-soft" /><rect x="134" y="26" width="22" height="22" class="c-void-soft" /><rect x="2" y="48" width="22" height="22" class="c-void-soft" /><rect x="24" y="48" width="22" height="22" class="c-void-soft" /><rect x="46" y="48" width="22" height="22" class="c-target" /><text x="57.0" y="63.5" class="dist-t on">3</text><rect x="68" y="48" width="22" height="22" class="c-target" /><text x="79.0" y="63.5" class="dist-t on">2</text><rect x="90" y="48" width="22" height="22" class="c-target" /><text x="101.0" y="63.5" class="dist-t on">3</text><rect x="112" y="48" width="22" height="22" class="c-void-soft" /><rect x="134" y="48" width="22" height="22" class="c-void-soft" /><rect x="2" y="70" width="22" height="22" class="c-void-soft" /><rect x="24" y="70" width="22" height="22" class="c-target" /><text x="35.0" y="85.5" class="dist-t on">3</text><rect x="46" y="70" width="22" height="22" class="c-target" /><text x="57.0" y="85.5" class="dist-t on">2</text><rect x="68" y="70" width="22" height="22" class="c-void-soft" /><text x="79.0" y="85.5" class="dist-t">1</text><rect x="90" y="70" width="22" height="22" class="c-target" /><text x="101.0" y="85.5" class="dist-t on">2</text><rect x="112" y="70" width="22" height="22" class="c-target" /><text x="123.0" y="85.5" class="dist-t on">3</text><rect x="134" y="70" width="22" height="22" class="c-void-soft" /><rect x="2" y="92" width="22" height="22" class="c-target" /><text x="13.0" y="107.5" class="dist-t on">3</text><rect x="24" y="92" width="22" height="22" class="c-target" /><text x="35.0" y="107.5" class="dist-t on">2</text><rect x="46" y="92" width="22" height="22" class="c-void-soft" /><text x="57.0" y="107.5" class="dist-t">1</text><rect x="68" y="92" width="22" height="22" class="c-void-soft" /><rect x="90" y="92" width="22" height="22" class="c-void-soft" /><text x="101.0" y="107.5" class="dist-t">1</text><rect x="112" y="92" width="22" height="22" class="c-target" /><text x="123.0" y="107.5" class="dist-t on">2</text><rect x="134" y="92" width="22" height="22" class="c-target" /><text x="145.0" y="107.5" class="dist-t on">3</text><rect x="2" y="114" width="22" height="22" class="c-void-soft" /><rect x="24" y="114" width="22" height="22" class="c-target" /><text x="35.0" y="129.5" class="dist-t on">3</text><rect x="46" y="114" width="22" height="22" class="c-target" /><text x="57.0" y="129.5" class="dist-t on">2</text><rect x="68" y="114" width="22" height="22" class="c-void-soft" /><text x="79.0" y="129.5" class="dist-t">1</text><rect x="90" y="114" width="22" height="22" class="c-target" /><text x="101.0" y="129.5" class="dist-t on">2</text><rect x="112" y="114" width="22" height="22" class="c-target" /><text x="123.0" y="129.5" class="dist-t on">3</text><rect x="134" y="114" width="22" height="22" class="c-void-soft" /><rect x="2" y="136" width="22" height="22" class="c-void-soft" /><rect x="24" y="136" width="22" height="22" class="c-void-soft" /><rect x="46" y="136" width="22" height="22" class="c-target" /><text x="57.0" y="151.5" class="dist-t on">3</text><rect x="68" y="136" width="22" height="22" class="c-target" /><text x="79.0" y="151.5" class="dist-t on">2</text><rect x="90" y="136" width="22" height="22" class="c-target" /><text x="101.0" y="151.5" class="dist-t on">3</text><rect x="112" y="136" width="22" height="22" class="c-void-soft" /><rect x="134" y="136" width="22" height="22" class="c-void-soft" /><rect x="2" y="158" width="22" height="22" class="c-void-soft" /><rect x="24" y="158" width="22" height="22" class="c-void-soft" /><rect x="46" y="158" width="22" height="22" class="c-void-soft" /><rect x="68" y="158" width="22" height="22" class="c-target" /><text x="79.0" y="173.5" class="dist-t on">3</text><rect x="90" y="158" width="22" height="22" class="c-void-soft" /><rect x="112" y="158" width="22" height="22" class="c-void-soft" /><rect x="134" y="158" width="22" height="22" class="c-void-soft" /><line x1="2" y1="26" x2="2" y2="180" class="grid"/><line x1="2" y1="26" x2="156" y2="26" class="grid"/><line x1="24" y1="26" x2="24" y2="180" class="grid"/><line x1="2" y1="48" x2="156" y2="48" class="grid"/><line x1="46" y1="26" x2="46" y2="180" class="grid"/><line x1="2" y1="70" x2="156" y2="70" class="grid"/><line x1="68" y1="26" x2="68" y2="180" class="grid"/><line x1="2" y1="92" x2="156" y2="92" class="grid"/><line x1="90" y1="26" x2="90" y2="180" class="grid"/><line x1="2" y1="114" x2="156" y2="114" class="grid"/><line x1="112" y1="26" x2="112" y2="180" class="grid"/><line x1="2" y1="136" x2="156" y2="136" class="grid"/><line x1="134" y1="26" x2="134" y2="180" class="grid"/><line x1="2" y1="158" x2="156" y2="158" class="grid"/><line x1="156" y1="26" x2="156" y2="180" class="grid"/><line x1="2" y1="180" x2="156" y2="180" class="grid"/><circle cx="79.0" cy="103.0" r="8" class="tok-p1"/><rect x="2" y="26" width="154" height="154" class="frame"/></svg></figure>
+      </div>
+      <figcaption>赤いマスに攻撃が届く。射程 2〜3（アーチャーなど）は、隣の敵には攻撃できない。</figcaption>
+    </div>
+  </div>
+  <div class="row-figs">
+    <figure class="shot "><img src="img/forecast.webp" width="1030" height="585" alt="攻撃の前に結果の見込みが出る画面" loading="lazy"><figcaption>敵を選ぶと、攻撃の前にダメージの見込みが出る。「攻撃」を押すと決まる</figcaption></figure>
+    <figure class="shot "><img src="img/attack-dice.webp" width="900" height="480" alt="攻撃ダイスを振る画面" loading="lazy"><figcaption>攻撃するとダイスが 2 個、盤に転がる（この例は 3・3）</figcaption></figure>
+    <figure class="shot "><img src="img/critical.webp" width="1600" height="800" alt="クリティカルの画面" loading="lazy"><figcaption>3・3 が出るとクリティカル。ダメージが AT の 2 倍になる</figcaption></figure>
+  </div>
+</section>
+
+<section class="ch" id="awaken">
+  <div class="ch-head"><span class="ch-no">CHAPTER 7</span><h2>覚醒</h2></div>
+  <div class="two">
+    <div>
+      <ul>
+        <li>ユニットが<strong>相手の陣地</strong>（奥の 2 列）に入り、相手のターンを耐えて、<strong>次の自分のターンのはじめ</strong>にまだそこにいれば覚醒します。</li>
+        <li>覚醒すると <strong>AT +1・HP +2</strong>（最大 HP も増える）。破壊されるまでずっと続きます。</li>
+        <li>ロードも覚醒します。</li>
+        <li>覚醒すると別の力が目覚めるユニットもいます。</li>
+        <li>守る側は、入ってきたユニットを自分の番のうちに破壊すれば、覚醒を防げます。</li>
+      </ul>
+    </div>
+    <div class="fig-box"><div class="aw-row"><figure><svg viewBox="0 0 116 68" role="img" aria-label="自分の番" xmlns="http://www.w3.org/2000/svg" class="fig-svg"><rect x="2" y="2" width="16" height="16" class="c-p2zone" /><rect x="18" y="2" width="16" height="16" class="c-p2zone" /><rect x="34" y="2" width="16" height="16" class="c-p2zone" /><rect x="50" y="2" width="16" height="16" class="c-p2zone" /><rect x="66" y="2" width="16" height="16" class="c-p2zone" /><rect x="82" y="2" width="16" height="16" class="c-p2zone" /><rect x="98" y="2" width="16" height="16" class="c-p2zone" /><rect x="2" y="18" width="16" height="16" class="c-p2zone" /><rect x="18" y="18" width="16" height="16" class="c-p2zone" /><rect x="34" y="18" width="16" height="16" class="c-p2zone" /><rect x="50" y="18" width="16" height="16" class="c-p2zone" /><rect x="66" y="18" width="16" height="16" class="c-p2zone" /><rect x="82" y="18" width="16" height="16" class="c-p2zone" /><rect x="98" y="18" width="16" height="16" class="c-p2zone" /><rect x="2" y="34" width="16" height="16" class="c-void" /><rect x="18" y="34" width="16" height="16" class="c-void" /><rect x="34" y="34" width="16" height="16" class="c-path" /><rect x="50" y="34" width="16" height="16" class="c-path" /><rect x="66" y="34" width="16" height="16" class="c-void" /><rect x="82" y="34" width="16" height="16" class="c-void" /><rect x="98" y="34" width="16" height="16" class="c-void" /><rect x="2" y="50" width="16" height="16" class="c-void" /><rect x="18" y="50" width="16" height="16" class="c-void" /><rect x="34" y="50" width="16" height="16" class="c-path" /><rect x="50" y="50" width="16" height="16" class="c-path" /><rect x="66" y="50" width="16" height="16" class="c-void" /><rect x="82" y="50" width="16" height="16" class="c-void" /><rect x="98" y="50" width="16" height="16" class="c-void" /><line x1="2" y1="2" x2="2" y2="66" class="grid"/><line x1="18" y1="2" x2="18" y2="66" class="grid"/><line x1="34" y1="2" x2="34" y2="66" class="grid"/><line x1="50" y1="2" x2="50" y2="66" class="grid"/><line x1="66" y1="2" x2="66" y2="66" class="grid"/><line x1="82" y1="2" x2="82" y2="66" class="grid"/><line x1="98" y1="2" x2="98" y2="66" class="grid"/><line x1="114" y1="2" x2="114" y2="66" class="grid"/><line x1="2" y1="2" x2="114" y2="2" class="grid"/><line x1="2" y1="18" x2="114" y2="18" class="grid"/><line x1="2" y1="34" x2="114" y2="34" class="grid"/><line x1="2" y1="50" x2="114" y2="50" class="grid"/><line x1="2" y1="66" x2="114" y2="66" class="grid"/><line x1="58.0" y1="59.6" x2="58.0" y2="38.8" class="arrow"/><circle cx="58.0" cy="26.0" r="6.5" class="tok-p1"/><rect x="2" y="2" width="112" height="64" class="frame"/></svg><figcaption><strong>1. 自分の番</strong><span>相手の陣地に<wbr>入る</span></figcaption></figure><figure><svg viewBox="0 0 116 68" role="img" aria-label="相手の番" xmlns="http://www.w3.org/2000/svg" class="fig-svg"><rect x="2" y="2" width="16" height="16" class="c-p2zone" /><rect x="18" y="2" width="16" height="16" class="c-p2zone" /><rect x="34" y="2" width="16" height="16" class="c-p2zone" /><rect x="50" y="2" width="16" height="16" class="c-p2zone" /><rect x="66" y="2" width="16" height="16" class="c-p2zone" /><rect x="82" y="2" width="16" height="16" class="c-p2zone" /><rect x="98" y="2" width="16" height="16" class="c-p2zone" /><rect x="2" y="18" width="16" height="16" class="c-p2zone" /><rect x="18" y="18" width="16" height="16" class="c-p2zone" /><rect x="34" y="18" width="16" height="16" class="c-p2zone" /><rect x="50" y="18" width="16" height="16" class="c-p2zone" /><rect x="66" y="18" width="16" height="16" class="c-p2zone" /><rect x="82" y="18" width="16" height="16" class="c-p2zone" /><rect x="98" y="18" width="16" height="16" class="c-p2zone" /><rect x="2" y="34" width="16" height="16" class="c-void" /><rect x="18" y="34" width="16" height="16" class="c-void" /><rect x="34" y="34" width="16" height="16" class="c-path" /><rect x="50" y="34" width="16" height="16" class="c-path" /><rect x="66" y="34" width="16" height="16" class="c-void" /><rect x="82" y="34" width="16" height="16" class="c-void" /><rect x="98" y="34" width="16" height="16" class="c-void" /><rect x="2" y="50" width="16" height="16" class="c-void" /><rect x="18" y="50" width="16" height="16" class="c-void" /><rect x="34" y="50" width="16" height="16" class="c-path" /><rect x="50" y="50" width="16" height="16" class="c-path" /><rect x="66" y="50" width="16" height="16" class="c-void" /><rect x="82" y="50" width="16" height="16" class="c-void" /><rect x="98" y="50" width="16" height="16" class="c-void" /><line x1="2" y1="2" x2="2" y2="66" class="grid"/><line x1="18" y1="2" x2="18" y2="66" class="grid"/><line x1="34" y1="2" x2="34" y2="66" class="grid"/><line x1="50" y1="2" x2="50" y2="66" class="grid"/><line x1="66" y1="2" x2="66" y2="66" class="grid"/><line x1="82" y1="2" x2="82" y2="66" class="grid"/><line x1="98" y1="2" x2="98" y2="66" class="grid"/><line x1="114" y1="2" x2="114" y2="66" class="grid"/><line x1="2" y1="2" x2="114" y2="2" class="grid"/><line x1="2" y1="18" x2="114" y2="18" class="grid"/><line x1="2" y1="34" x2="114" y2="34" class="grid"/><line x1="2" y1="50" x2="114" y2="50" class="grid"/><line x1="2" y1="66" x2="114" y2="66" class="grid"/><circle cx="58.0" cy="26.0" r="6.5" class="tok-p1"/><rect x="2" y="2" width="112" height="64" class="frame"/></svg><figcaption><strong>2. 相手の番</strong><span>破壊されずに<wbr>耐える</span></figcaption></figure><figure><svg viewBox="0 0 116 68" role="img" aria-label="次の自分の番" xmlns="http://www.w3.org/2000/svg" class="fig-svg"><rect x="2" y="2" width="16" height="16" class="c-p2zone" /><rect x="18" y="2" width="16" height="16" class="c-p2zone" /><rect x="34" y="2" width="16" height="16" class="c-p2zone" /><rect x="50" y="2" width="16" height="16" class="c-p2zone" /><rect x="66" y="2" width="16" height="16" class="c-p2zone" /><rect x="82" y="2" width="16" height="16" class="c-p2zone" /><rect x="98" y="2" width="16" height="16" class="c-p2zone" /><rect x="2" y="18" width="16" height="16" class="c-p2zone" /><rect x="18" y="18" width="16" height="16" class="c-p2zone" /><rect x="34" y="18" width="16" height="16" class="c-p2zone" /><rect x="50" y="18" width="16" height="16" class="c-p2zone" /><rect x="66" y="18" width="16" height="16" class="c-p2zone" /><rect x="82" y="18" width="16" height="16" class="c-p2zone" /><rect x="98" y="18" width="16" height="16" class="c-p2zone" /><rect x="2" y="34" width="16" height="16" class="c-void" /><rect x="18" y="34" width="16" height="16" class="c-void" /><rect x="34" y="34" width="16" height="16" class="c-path" /><rect x="50" y="34" width="16" height="16" class="c-path" /><rect x="66" y="34" width="16" height="16" class="c-void" /><rect x="82" y="34" width="16" height="16" class="c-void" /><rect x="98" y="34" width="16" height="16" class="c-void" /><rect x="2" y="50" width="16" height="16" class="c-void" /><rect x="18" y="50" width="16" height="16" class="c-void" /><rect x="34" y="50" width="16" height="16" class="c-path" /><rect x="50" y="50" width="16" height="16" class="c-path" /><rect x="66" y="50" width="16" height="16" class="c-void" /><rect x="82" y="50" width="16" height="16" class="c-void" /><rect x="98" y="50" width="16" height="16" class="c-void" /><line x1="2" y1="2" x2="2" y2="66" class="grid"/><line x1="18" y1="2" x2="18" y2="66" class="grid"/><line x1="34" y1="2" x2="34" y2="66" class="grid"/><line x1="50" y1="2" x2="50" y2="66" class="grid"/><line x1="66" y1="2" x2="66" y2="66" class="grid"/><line x1="82" y1="2" x2="82" y2="66" class="grid"/><line x1="98" y1="2" x2="98" y2="66" class="grid"/><line x1="114" y1="2" x2="114" y2="66" class="grid"/><line x1="2" y1="2" x2="114" y2="2" class="grid"/><line x1="2" y1="18" x2="114" y2="18" class="grid"/><line x1="2" y1="34" x2="114" y2="34" class="grid"/><line x1="2" y1="50" x2="114" y2="50" class="grid"/><line x1="2" y1="66" x2="114" y2="66" class="grid"/><circle cx="58.0" cy="26.0" r="6.5" class="tok-p1 tok-awake"/><rect x="2" y="2" width="112" height="64" class="frame"/></svg><figcaption><strong>3. 次の自分の番</strong><span>はじめに<wbr>覚醒</span><b class="gold">AT +1・HP +2</b></figcaption></figure></div></div>
+  </div>
+</section>
+
+<section class="ch" id="skill">
+  <div class="ch-head"><span class="ch-no">CHAPTER 8</span><h2>スキルと状態</h2></div>
+  <div class="two">
+    <div>
+      <h3>スキル</h3>
+      <ul>
+        <li><strong>パッシブ</strong>: 条件を満たすと自動で働きます。</li>
+        <li><strong>アクティブ</strong>: マナを払って使います。1 体 1 ターンに 1 回。召喚したターンは使えません。</li>
+        <li>説明は、スキルの名前にマウスを乗せると出ます。全部を覚えなくても大丈夫です。</li>
+      </ul>
+      <h3>特性（動き方が変わるもの）</h3>
+      <div class="tbl-wrap"><table>
+        <tbody>
+          <tr><th>飛行</th><td>道の無いマスも移動できる。敵エリアの AT −1 を受けない</td></tr>
+          <tr><th>重装</th><td>移動が 1 マス 2 マナ</td></tr>
+          <tr><th>シャドー</th><td>敵のいるマスもすり抜けて移動できる</td></tr>
+        </tbody>
+      </table></div>
+      <h3>状態（バフ・デバフ）</h3>
+      <ul>
+        <li>「毒 2」のように、名前と数字で付きます。良いものがバフ、悪いものがデバフ。</li>
+        <li>数字は、ターンが終わるたびか、効果が働くたびに減り、0 で消えます。</li>
+        <li>付いている状態は UNIT 欄にアイコンで出て、マウスを乗せると説明が出ます。</li>
+      </ul>
+    </div>
+    <figure class="shot "><img src="img/tooltip.webp" width="1290" height="770" alt="スキルの名前にマウスを乗せると説明が出る画面" loading="lazy"><figcaption>スキルの名前にマウスを乗せると説明が出る。右の UNIT 欄にはカード・展開図・スキルが並ぶ</figcaption></figure>
+  </div>
+</section>
+
+<section class="ch" id="more">
+  <div class="ch-head"><span class="ch-no">CHAPTER 9</span><h2>慣れてきたら</h2></div>
+  <div class="two">
+    <div>
+      <h3>自分の道に重ねて召喚</h3>
+      <p>展開図は、自分の道に一部を重ねても置けます（陣地・相手の道・ユニットのいるマスには重ねられません）。重なったマスの数だけ、召喚したユニットの HP が減って出てきます（最低 1）。道を伸ばしにくい場所で役に立ちます。</p>
+      <h3>ダメージの種類</h3>
+      <ul>
+        <li><strong>物理</strong>: ふつうの攻撃など。守りのスキル（シールド・強靭など）で減らせる。</li>
+        <li><strong>魔法</strong>: 魔導のユニットの攻撃や、ファイアなど。抗魔で減らせる。</li>
+        <li><strong>特殊</strong>: 毒など。減らせない。</li>
+        <li>障壁は、次に受ける物理か魔法のダメージを 1 回だけ 0 にします。</li>
+      </ul>
+    </div>
+    <div>
+      <h3>ミシックマナ</h3>
+      <p>ターンが終わっても消えないマナ。使うときは、そのターンのマナから先に減り、足りない分だけミシックマナが減ります。後手が 1 つ持って始めるほか、スキルで増やせるロードやユニットもいます。</p>
+      <h3>長い試合</h3>
+      <p>51 ターン目からは、両方のプレイヤーが振るマナのダイスが 4 個になります（マナの奔流）。</p>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="card">
+  <div class="ch-head"><span class="ch-no">CHAPTER 10</span><h2>早見表</h2></div>
+  <div class="card">
+    <dl>
+      <dt>勝ち</dt><dd>相手のロードの HP を 0 にする</dd>
+      <dt>マナ</dt><dd>ダイス 3 個の合計（3〜9・平均 6）。余りは消える</dd>
+      <dt>召喚</dt><dd>1 ターン 1 回・コスト分のマナ。展開図を自エリアに辺で接して置く</dd>
+      <dt>移動</dt><dd>1 マス 1 マナ・移動力まで・縦横だけ・道と陣地の上だけ</dd>
+      <dt>攻撃</dt><dd>2 マナ・射程は縦横のマス数の合計・ダイス 3・3 でクリティカル（AT × 2）</dd>
+      <dt>スキル</dt><dd>1 体 1 ターン 1 回・マナはスキルごと</dd>
+      <dt>召喚したターン</dt><dd>移動はできる。攻撃とスキルはできない</dd>
+      <dt>敵エリアで攻撃</dt><dd>AT −1（飛行は除く）</dd>
+      <dt>覚醒</dt><dd>相手の陣地で次の自分のターンを迎えると AT +1・HP +2</dd>
+    </dl>
+  </div>
+  <p class="meta">ルール仕様書 v0.2.152（2026-11-11）にもとづく。数値はテストプレイで変わることがあります。</p>
+</section>
+</div>
+</body>
+</html>
